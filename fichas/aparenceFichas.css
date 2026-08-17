@@ -55,7 +55,35 @@ p {
     font-size: 40px;
     margin: 0;
 }
-a{
-    text-decoration: none;
-    color: #7854b4;
+
+.modal-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.modal-body button {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 20%;
+}
+
+#casaCoelho {
+    background-color: #9ab1dd;
+}
+
+#casaChapeleiro {
+    background-color: #b5d699;
+}
+
+#casaRainha {
+    background-color: #f899b0;
+}
+
+#casaGato {
+    background-color: #d593d3;
 }
