@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de início</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="aparenceInicio.css">
+</head>
+
+<body>
+    <div id="atalhos">
+        <button>
+            <a href="../livroDeRegras/livro.html"><svg id="in"
+                    xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                    <!--  <path d="M0 0h24v24H0z" fill="none" /> -->
+                    <path
+                        d="M19 3.25H6.75a2.43 2.43 0 0 0-2.5 2.35V18a2.85 2.85 0 0 0 2.94 2.75H19a.76.76 0 0 0 .75-.75V4a.76.76 0 0 0-.75-.75m-.75 16H7.19A1.35 1.35 0 0 1 5.75 18a1.35 1.35 0 0 1 1.44-1.25h11.06Zm0-4H7.19a3 3 0 0 0-1.44.37V5.6a.94.94 0 0 1 1-.85h11.5Z" />
+                    <path
+                        d="M8.75 8.75h6.5a.75.75 0 0 0 0-1.5h-6.5a.75.75 0 0 0 0 1.5m0 3.5h6.5a.75.75 0 0 0 0-1.5h-6.5a.75.75 0 0 0 0 1.5" />
+                </svg>
+
+            </a>
+            Regras
+        </button>
+        <button>
+            <a href="../fichas/fichas.html"><svg id="in2" xmlns="http://www.w3.org/2000/svg"
+                    width="3em" height="3em" viewBox="0 0 32 32" fill="none"
+                    stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+             <!--        <path d="M0 0h32v32H0z" fill="none" /> -->
+                    <g fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 9h4m-4 7h12m-12 4h12m-12 4h4m-6 5h16a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v22a2 2 0 0 0 2 2" />
+                        <circle cx="22" cy="9" r=".5" fill="currentColor" />
+                    </g>
+                </svg>
+            </a>
+            Fichas
+        </button>
+    </div>
+    <img src="../imagens/arcaneMirrorAcademy.jpeg" alt="Brasão da Arcane Mirror Academy" id="brasao">
+
+    <script src="../jquery-4.0.0.min.js"></script>
+    <script src="../jquery.drawsvg.min.js"></script>
+    <script>
+        var livroSVG = $('#in').drawsvg({ duration: 1200 });
+        var fichaSVG = $('#in2').drawsvg({ duration: 1200 });
+        
+        livroSVG.drawsvg('animate');
+        fichaSVG.drawsvg('animate');
+    </script>
+</body>
+
+</html>

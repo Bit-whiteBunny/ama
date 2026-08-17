@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F8F9FA;
+    font-family: "Playfair Display", serif;
+}
+
+#fundo {
+    width: 500px;
+    height: auto;
+    opacity: 0.4;
+}
+
+#fichas {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: auto;
+}
+
+#criar {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+    border-radius: 30px;
+    background-color: #F8F9FA;
+    border: 1px solid #7854b4;
+    outline: 4px solid #F8F9FA;
+    color: #2d2d62;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#voltar {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    margin: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+p {
+    font-size: 40px;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: #7854b4;
+}
