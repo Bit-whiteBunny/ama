@@ -3,7 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #F8F9FA;
+    background-color: #F8F9FB;
     font-family: "Playfair Display", serif;
 }
 
@@ -31,9 +31,9 @@ body {
     height: 100px;
     width: 100px;
     border-radius: 30px;
-    background-color: #F8F9FA;
+    background-color: #F8F9FB;
     border: 1px solid #7854b4;
-    outline: 4px solid #F8F9FA;
+    outline: 4px solid #F8F9FB;
     color: #2d2d62;
     display: flex;
     flex-direction: column;
