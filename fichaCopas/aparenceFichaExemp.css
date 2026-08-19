@@ -1,0 +1,246 @@
+:root {
+    --bg-color: #9AB1DD;
+    --text-color: #1a1e36;
+    --line-color: #1a1e36;
+    --font-family: 'Courier New', Courier, monospace;
+}
+
+#voltar {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    margin: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estiliza o corpo da página */
+body {
+    background-color: #F8F9FA;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Container principal que simula o papel/ficha */
+.dados-ficha {
+    background-color: var(--bg-color);
+    width: 100%;
+    max-width: 650px;
+    padding: 30px;
+    border-radius: 8px;
+    position: relative;
+}
+
+/* Estilização para agrupar rótulo e input em linha */
+.campo-linha {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 12px;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+/* Espaçamento à direita do texto do label */
+.campo-linha label {
+    white-space: nowrap;
+    margin-right: 6px;
+}
+
+/* Estilização dos campos de texto com linha tracejada embaixo */
+.campo-linha input[type="text"] {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-bottom: 2px dashed var(--line-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: 0.95rem;
+    outline: none;
+    padding: 2px 4px;
+}
+
+/* Espaçamento inferior para os blocos de texto maior */
+.campo-texto {
+    margin-bottom: 25px;
+}
+
+/* Rótulo dos campos de texto grande */
+.campo-texto label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+/* Caixa de texto multilinha (textarea) */
+.campo-texto textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px dashed var(--line-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    outline: none;
+    resize: vertical;
+}
+
+/* Espaçamento inferior para os blocos de texto maior */
+.campo-texto {
+    margin-bottom: 25px;
+}
+
+/* Rótulo dos campos de texto grande */
+.campo-texto label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+/* Caixa de texto multilinha (textarea) */
+.campo-texto2 textarea {
+    width: 85%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px dashed var(--line-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    outline: none;
+    resize: vertical;
+}
+
+/* Seção principal para os atributos e habilidades */
+.secao-atributos {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+/* Título da seção de atributos ocupando toda a largura */
+.secao-atributos h3 {
+    grid-column: 1 / -1;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+/* Container que agrupa os ícones animados e seus inputs */
+.grupo-animacao {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Linha individual contendo o ícone SVG e o input correspondente */
+.linha-icone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+/* Input de texto ao lado do ícone SVG */
+.linha-icone input {
+    width: 60px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px dashed var(--line-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    text-align: center;
+    outline: none;
+}
+
+/* Coluna que organiza a lista de checkboxes */
+.coluna-checkbox {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Item individual de checkbox com seu texto */
+.item-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Customização visual do elemento input do tipo checkbox */
+.item-checkbox input[type="checkbox"] {
+    appearance: none;
+    width: 24px;
+    height: 14px;
+    border: 2px solid var(--text-color);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    background: transparent;
+}
+
+/* Altera a cor de fundo do checkbox quando marcado */
+.item-checkbox input[type="checkbox"]:checked {
+    background-color: var(--text-color);
+}
+
+/* Seção de status (PV, PE e caixas de seleção) */
+.secao-status {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 20px;
+    margin-bottom: 25px;
+    align-items: start;
+}
+
+/* Grupo de inputs para PV e PE */
+.grupo-pv-pe {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Linha individual para cada status (PV ou PE) */
+.item-pv-pe {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Input de texto para os valores de PV e PE */
+.item-pv-pe input {
+    width: 70px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px dashed var(--line-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    outline: none;
+}
+
+/* Estilização e posicionamento da silhueta decorativa do coelho */
+.icone-coelho {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 90px;
+    height: auto;
+    pointer-events: none;
+}

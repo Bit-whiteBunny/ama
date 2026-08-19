@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Personagem</title>
+    <link rel="stylesheet" href="aparenceFichaExemp.css">
+</head>
+
+<body>
+     <button id="voltar">
+        <a href="../inicio/paginaInicial.html"> <img src="../imagens/logo.jpeg" alt="Brasão da Arcane Mirror Academy"
+                height="100px"></a>
+    </button>
+    <!-- Formulário principal da ficha -->
+    <form class="dados-ficha">
+        <!-- Campo para inserir o nome do personagem -->
+        <div class="campo-linha">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome">
+        </div>
+
+        <!-- Campo para inserir a idade do personagem -->
+        <div class="campo-linha">
+            <label for="idade">Idade:</label>
+            <input type="text" id="idade" name="idade">
+        </div>
+
+        <!-- Campo para inserir o ano escolar ou período -->
+        <div class="campo-linha">
+            <label for="ano">Ano:</label>
+            <input type="text" id="ano" name="ano" placeholder="(1º, 2º, 3º...)">
+        </div>
+
+        <!-- Área de texto para descrição física e personalidade -->
+        <div class="campo-texto">
+            <label for="descricao">Descrição Física/Personalidade:</label>
+            <textarea id="descricao" name="descricao" rows="3"></textarea>
+        </div>
+
+        <!-- Seção de atributos do personagem -->
+        <div class="secao-atributos">
+            <h3>Atributos:</h3>
+
+            <!-- Grupo contendo os ícones SVG e campos de atributos -->
+            <div class="grupo-animacao">
+                <!-- Primeiro atributo com ícone SVG -->
+                <div class="linha-icone">
+                    <svg id="in" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2">
+                            <path
+                                d="M3 14c.83.642 2.077 1.017 3.5 1c1.423.017 2.67-.358 3.5-1s2.077-1.017 3.5-1c1.423-.017 2.67.358 3.5 1M8 3a2.4 2.4 0 0 0-1 2a2.4 2.4 0 0 0 1 2m4-4a2.4 2.4 0 0 0-1 2a2.4 2.4 0 0 0 1 2" />
+                            <path d="M3 10h14v5a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6z" />
+                            <path d="M16.746 16.726a3 3 0 1 0 .252-5.555" />
+                        </g>
+                    </svg>
+                    <input type="text" name="attr_cafe">
+                </div>
+                <!-- Segundo atributo com ícone SVG -->
+                <div class="linha-icone">
+                    <svg id="in2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"
+                        fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="4">
+                            <path
+                                d="M40 30V15L27.5 7.969m-7 0L8 15v15m3 4.688L24 42l8-4.5l5-2.812M21 18.75l-3 1.75v7l3 1.75L24 31l3-1.75l3-1.75v-7l-3-1.75L24 17zM24 17v-7m6 17l7 4m-19-4l-7 4" />
+                            <circle cx="24" cy="7" r="3" />
+                            <circle cx="8" cy="33" r="3" />
+                            <circle cx="40" cy="33" r="3" />
+                        </g>
+                    </svg>
+                    <input type="text" name="attr_espiral">
+                </div>
+                <!-- Terceiro atributo com ícone SVG -->
+                <div class="linha-icone">
+                    <svg id="in3" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"
+                        fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="4">
+                            <path
+                                d="M8 12a4 4 0 1 0 0-8a4 4 0 0 0 0 8m2 30a6 6 0 1 0 0-12a6 6 0 0 0 0 12m28 2a6 6 0 1 0 0-12a6 6 0 0 0 0 12M22 28a8 8 0 1 0 0-16a8 8 0 0 0 0 16m12-16a4 4 0 1 0 0-8a4 4 0 0 0 0 8"
+                                clip-rule="evenodd" />
+                            <path d="m11 11l4 4m15-3l-2 2m6 19.5L28 26m-14 5l4-4" />
+                        </g>
+                    </svg>
+                    <input type="text" name="attr_espelho">
+                </div>
+                <!-- Quarto atributo com ícone SVG -->
+                <div class="linha-icone">
+                    <svg id="in4" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512"
+                        fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="32"
+                            d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81c-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0 0 18 0c96.26-65.34 184.09-143.09 183-252.42c-.54-52.67-42.32-96.81-95.08-96.81" />
+                    </svg>
+                    <input type="text" name="attr_coracao">
+                </div>
+            </div>
+
+            <!-- Coluna contendo checkboxes de perícias ou características -->
+            <div class="coluna-checkbox">
+                <label class="item-checkbox"><input type="checkbox" name="ritmo_perfeito"> Ritmo Perfeito</label>
+                <label class="item-checkbox"><input type="checkbox" name="precisao_relogio"> Precisão de Relógio</label>
+                <label class="item-checkbox"><input type="checkbox" name="biblioteca_viva"> Biblioteca Viva</label>
+                <label class="item-checkbox"><input type="checkbox" name="agenda_magica"> Agenda Mágica</label>
+                <label class="item-checkbox"><input type="checkbox" name="organizacao_impecavel"> Organização Impecável</label>
+                <label class="item-checkbox"><input type="checkbox" name="corre_corre"> Corre, Corre!</label>
+                <label class="item-checkbox"><input type="checkbox" name="marcador_temporal"> Marcador Temporal</label>
+                <label class="item-checkbox"><input type="checkbox" name="relogio_destino"> Relógio do Destino</label>
+                <label class="item-checkbox"><input type="checkbox" name="pontualidade_absoluta"> Pontualidade Absoluta</label>
+                <label class="item-checkbox"><input type="checkbox" name="dedicacao_eterna"> Dedicação Eterna</label>
+            </div>
+        </div>
+
+        <!-- Seção de status de combate/vida e magias -->
+        <div class="secao-status">
+            <!-- Grupo de campos para Pontos de Vida (PV) e Pontos de Energia (PE) -->
+            <div class="grupo-pv-pe">
+                <div class="item-pv-pe">
+                    <label for="pv">PV =</label>
+                    <input type="text" id="pv" name="pv">
+                </div>
+                <div class="item-pv-pe">
+                    <label for="pe">PE =</label>
+                    <input type="text" id="pe" name="pe">
+                </div>
+            </div>
+
+            <!-- Coluna com checkboxes de status adicionais -->
+            <div class="coluna-checkbox">
+                <label class="item-checkbox"><input type="checkbox" name="velocidade_evasao"> Velocidade & Evasão</label>
+                <label class="item-checkbox"><input type="checkbox" name="magia_tempo"> Magia do Tempo Pessoal</label>
+                <label class="item-checkbox"><input type="checkbox" name="rastreamento"> Rastreamento & Pontualidade</label>
+            </div>
+        </div>
+
+        <!-- Campo de texto para listar equipamentos e itens mágicos -->
+        <div class="campo-texto">
+            <label for="equipamentos">Equipamentos e Itens Mágicos:</label>
+            <textarea id="equipamentos" name="equipamentos" rows="2"></textarea>
+        </div>
+
+        <!-- Campo de texto para descrever armas ou ferramentas mágicas -->
+        <div class="campo-texto2">
+            <label for="arma">Arma / Ferramenta Mágica:</label>
+            <textarea id="arma" name="arma" rows="3"></textarea>
+        </div>
+
+        <!-- Imagem decorativa da silhueta do coelho no canto inferior -->
+        <img class="icone-coelho" src="../imagens/coelho.png" alt="">
+    </form>
+    <button onclick="window.print()">Imprimir Página</button>
+    
+    <!-- Importação da biblioteca jQuery -->
+    <script src="../jquery-4.0.0.min.js"></script>
+    <!-- Importação do plugin drawsvg para animar os ícones -->
+    <script src="../jquery.drawsvg.min.js"></script>
+    <script>
+        // Inicializa a animação drawsvg para cada ícone com seu respectivo tempo de duração
+        var cafeSVG = $('#in').drawsvg({ duration: 1200 });
+        var imaginSVG = $('#in2').drawsvg({ duration: 2500 });
+        var caosSVG = $('#in3').drawsvg({ duration: 2500 });
+        var amorSVG = $('#in4').drawsvg({ duration: 1200 });
+
+        // Dispara o efeito de animação de desenho nos SVGs
+        cafeSVG.drawsvg('animate');
+        imaginSVG.drawsvg('animate');
+        caosSVG.drawsvg('animate');
+        amorSVG.drawsvg('animate');
+    </script>
+</body>
+
+</html>
