@@ -1,7 +1,7 @@
 :root {
     --bg-color: #f899b0;
-    --text-color: #361a23;
-    --line-color: #361a20;
+    --text-color: #6F2F3F;
+    --line-color: #6F2F3F;
     --font-family: 'Courier New', Courier, monospace;
 }
 
@@ -13,6 +13,50 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
+}
+
+#voltar {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    margin: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    min-width: 20px;
+    min-height: 20px;
+    z-index: 999;
+}
+
+#voltar .ivoltar {
+    display: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+
+    #voltar .logo {
+        display: none;
+    }
+
+    #voltar .ivoltar {
+        display: inline-block;
+    }
+
+    #voltar {
+        width: 40px;
+        height: 40px;
+        background-color: var(--bg-color);
+        border: 2px solid var(--text-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
 }
 
 * {

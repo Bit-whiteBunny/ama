@@ -9,9 +9,12 @@
 </head>
 
 <body>
-     <button id="voltar">
-        <a href="../inicio/paginaInicial.html"> <img src="../imagens/logo.jpeg" alt="Brasão da Arcane Mirror Academy"
-                height="100px"></a>
+    <button id="voltar">
+        <a href="../inicio/paginaInicial.html"> 
+            <img class="logo" src="../imagens/logo.jpeg" alt="Brasão da Arcane Mirror Academy"
+                height="100px">
+            <span class="ivoltar">&#8592;</span>
+        </a>
     </button>
     <!-- Formulário principal da ficha -->
     <form class="dados-ficha">
@@ -110,11 +113,13 @@
                 <label class="item-checkbox"><input type="checkbox" name="precisao_relogio"> Precisão de Relógio</label>
                 <label class="item-checkbox"><input type="checkbox" name="biblioteca_viva"> Biblioteca Viva</label>
                 <label class="item-checkbox"><input type="checkbox" name="agenda_magica"> Agenda Mágica</label>
-                <label class="item-checkbox"><input type="checkbox" name="organizacao_impecavel"> Organização Impecável</label>
+                <label class="item-checkbox"><input type="checkbox" name="organizacao_impecavel"> Organização
+                    Impecável</label>
                 <label class="item-checkbox"><input type="checkbox" name="corre_corre"> Corre, Corre!</label>
                 <label class="item-checkbox"><input type="checkbox" name="marcador_temporal"> Marcador Temporal</label>
                 <label class="item-checkbox"><input type="checkbox" name="relogio_destino"> Relógio do Destino</label>
-                <label class="item-checkbox"><input type="checkbox" name="pontualidade_absoluta"> Pontualidade Absoluta</label>
+                <label class="item-checkbox"><input type="checkbox" name="pontualidade_absoluta"> Pontualidade
+                    Absoluta</label>
                 <label class="item-checkbox"><input type="checkbox" name="dedicacao_eterna"> Dedicação Eterna</label>
             </div>
         </div>
@@ -135,9 +140,11 @@
 
             <!-- Coluna com checkboxes de status adicionais -->
             <div class="coluna-checkbox">
-                <label class="item-checkbox"><input type="checkbox" name="velocidade_evasao"> Velocidade & Evasão</label>
+                <label class="item-checkbox"><input type="checkbox" name="velocidade_evasao"> Velocidade &
+                    Evasão</label>
                 <label class="item-checkbox"><input type="checkbox" name="magia_tempo"> Magia do Tempo Pessoal</label>
-                <label class="item-checkbox"><input type="checkbox" name="rastreamento"> Rastreamento & Pontualidade</label>
+                <label class="item-checkbox"><input type="checkbox" name="rastreamento"> Rastreamento &
+                    Pontualidade</label>
             </div>
         </div>
 
@@ -156,7 +163,7 @@
         <!-- Imagem decorativa da silhueta do coelho no canto inferior -->
         <img class="icone-coelho" src="../imagens/coelho.png" alt="">
     </form>
-    
+
     <!-- Importação da biblioteca jQuery -->
     <script src="../jquery-4.0.0.min.js"></script>
     <!-- Importação do plugin drawsvg para animar os ícones -->

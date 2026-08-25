@@ -1,7 +1,7 @@
 :root {
-    --bg-color: #D593D3;
-    --text-color: #7453a0;
-    --line-color: #7453a0;
+    --bg-color: #B4D699;
+    --text-color: #46563C;
+    --line-color: #46563C;
     --font-family: 'Courier New', Courier, monospace;
 }
 
@@ -280,7 +280,7 @@ body {
 }
 
 /* Estilização e posicionamento da silhueta decorativa do coelho */
-.icone-gato {
+.icone-chapeleiro {
     position: absolute;
     bottom: 20px;
     right: 20px;
