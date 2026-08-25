@@ -13,10 +13,29 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    min-width: 20px;
-    min-height: 20px;
-    z-index: 999;
 }
+
+#rolar {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    margin: 10px;
+    border: var(--line-color) solid 1px;
+    background-color: transparent;
+    cursor: pointer;
+    background-color: var(--bg-color);
+
+}
+
+.rolar {
+    border: var(--line-color) solid 1px;
+    background-color: transparent;
+    cursor: pointer;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    color: #F8F9FA;
+}
+
 #voltar .ivoltar {
     display: none;
     font-size: 24px;
@@ -48,6 +67,15 @@
     }
 }
 
+.dado{
+    width: 30px;
+    height: 30px;
+    background-color: var(--bg-color);
+    border: var(--line-color) solid 2px;
+    border-radius: 5px;
+    color: #F8F9FA;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -57,7 +85,7 @@
 /* Estiliza o corpo da página */
 body {
     background-color: #F8F9FA;
-    font-family: var(--font-family);
+    font-family: var(--font-family) !important;
     color: var(--text-color);
     display: flex;
     justify-content: center;
