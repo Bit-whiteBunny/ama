@@ -9,12 +9,18 @@ body {
 
 #atalhos {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 10px;
+    left: 10px;
     height: auto;
     display: flex;
-    flex-direction: column;
-    padding: 10px;
+    max-width: 30%;
+
+}
+
+#config {
+    position: absolute;
+    top: 30px;
+    right: 30px;
 }
 
 button {
@@ -22,8 +28,8 @@ button {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
-    height: 110px;
-    width: 110px;
+    height: 100px;
+    width: 100px;
     border-radius: 30px;
     background-color: #7854b4;
     border: 1px solid #2d2d62;
@@ -37,6 +43,7 @@ button {
 #brasao {
     width: 500px;
     height: auto;
+    max-width: 80%;
 }
 
 #atalhos img {
