@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ficha de Personagem</title>
     <link rel="stylesheet" href="aparenceFichaExemp.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
 <body>
-     <button id="voltar">
-        <a href="../inicio/paginaInicial.html"> 
-            <img class="logo" src="../imagens/logo.jpeg" alt="Brasão da Arcane Mirror Academy"
-                height="100px">
+    <button id="voltar">
+        <a href="../inicio/paginaInicial.html">
+            <img class="logo" src="../imagens/logo.jpeg" alt="Brasão da Arcane Mirror Academy" height="100px">
             <span class="ivoltar">&#8592;</span>
         </a>
     </button>
@@ -110,13 +111,17 @@
             <!-- Coluna contendo checkboxes de perícias ou características -->
             <div class="coluna-checkbox">
                 <label class="item-checkbox"><input type="checkbox" name="sorriso_enganoso"> Sorriso Enganoso</label>
-                <label class="item-checkbox"><input type="checkbox" name="enigma_instantaneo"> Enigma Instantâneo</label>
-                <label class="item-checkbox"><input type="checkbox" name="sombra_brincalhona"> Sombra Brincalhona</label>
+                <label class="item-checkbox"><input type="checkbox" name="enigma_instantaneo"> Enigma
+                    Instantâneo</label>
+                <label class="item-checkbox"><input type="checkbox" name="sombra_brincalhona"> Sombra
+                    Brincalhona</label>
                 <label class="item-checkbox"><input type="checkbox" name="piada_perigosa"> Piada Perigosa</label>
-                <label class="item-checkbox"><input type="checkbox" name="desaparecimento_subito"> Desaparecimento Súbito</label>
+                <label class="item-checkbox"><input type="checkbox" name="desaparecimento_subito"> Desaparecimento
+                    Súbito</label>
                 <label class="item-checkbox"><input type="checkbox" name="duas_caras"> Duas Caras</label>
                 <label class="item-checkbox"><input type="checkbox" name="sorriso_no_escuro"> Sorriso no Escuro</label>
-                <label class="item-checkbox"><input type="checkbox" name="confusao_planejada"> Confusão Planejada</label>
+                <label class="item-checkbox"><input type="checkbox" name="confusao_planejada"> Confusão
+                    Planejada</label>
                 <label class="item-checkbox"><input type="checkbox" name="charada_sem_fim"> Charada Sem Fim</label>
                 <label class="item-checkbox"><input type="checkbox" name="farsa_perfeita"> Farsa Perfeita</label>
             </div>
@@ -138,9 +143,12 @@
 
             <!-- Coluna com checkboxes de status adicionais -->
             <div class="coluna-checkbox">
-                <label class="item-checkbox"><input type="checkbox" name="ilusoes_e_aparencias"> Ilusoes & Aparências</label>
-                <label class="item-checkbox"><input type="checkbox" name="insibilidade_parcial"> Insibilidade Parcial</label>
-                <label class="item-checkbox"><input type="checkbox" name="linguagem_do_absurdo"> Linguagem do Absurdo</label>
+                <label class="item-checkbox"><input type="checkbox" name="ilusoes_e_aparencias"> Ilusoes &
+                    Aparências</label>
+                <label class="item-checkbox"><input type="checkbox" name="insibilidade_parcial"> Insibilidade
+                    Parcial</label>
+                <label class="item-checkbox"><input type="checkbox" name="linguagem_do_absurdo"> Linguagem do
+                    Absurdo</label>
             </div>
         </div>
 
@@ -157,12 +165,57 @@
         </div>
 
         <!-- Imagem decorativa da silhueta do coelho no canto inferior -->
-         <img class="icone-gato" src="../imagens/gato.png" alt="">
+        <img class="icone-gato" src="../imagens/gato.png" alt="">
     </form>
-    
-    <!-- Importação da biblioteca jQuery -->
+    <button id="rolar" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Rolar
+        dados</button>
+
+    <div class="modal" id="staticBackdrop" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Vamos rolar os Dados!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="perg"><label for="num_dados">Número de dados d6</label> <input type="number" name=""
+                            id="num" min="1" onkeydown="if(event.key==='-') event.preventDefault();"> <button
+                            class="rolar" onclick="rolar()">Rolar!</button></div>
+                    <div id="result">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="compartilhar" class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        Compartilhar ficha
+    </button>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Compartilhar!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                O sistema de compartilhar fichas gera uma cópia de sua ficha a quem você escolheu compartilhar, essa
+                pessoa não pode modificar a ficha.
+            </div>
+            <div class="dropdown mt-3">
+                <label for="">Usuário</label><input type="text"> <br>
+                <button type="button" id="compar">
+                    Compartilhar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
     <script src="../jquery-4.0.0.min.js"></script>
-    <!-- Importação do plugin drawsvg para animar os ícones -->
     <script src="../jquery.drawsvg.min.js"></script>
     <script>
         // Inicializa a animação drawsvg para cada ícone com seu respectivo tempo de duração
@@ -176,6 +229,26 @@
         imaginSVG.drawsvg('animate');
         caosSVG.drawsvg('animate');
         amorSVG.drawsvg('animate');
+
+        function rolar() {
+            let numDeDados = $('#num').val();
+            let valores = [];
+            for (let i = 0; i < numDeDados; i++) {
+                valores[i] = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+            }
+            $('#perg').css('display', 'none');
+            let modeloRes = ' ';
+            for (let i = 0; i < valores.length; i++) {
+                modeloRes += `<div class="dado">${valores[i]}</div>`;
+            }
+            $('#result').append(modeloRes);
+            $('#result').css('display', 'flex');
+        }
+        $('#staticBackdrop').on('hidden.bs.modal', function () {
+            $('#perg').css('display', 'block');
+            $('#result').css('display', 'none').empty();
+            $('#num').val('');
+        });
     </script>
 </body>
 

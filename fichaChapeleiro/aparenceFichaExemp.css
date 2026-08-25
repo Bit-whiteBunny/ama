@@ -5,14 +5,63 @@
     --font-family: 'Courier New', Courier, monospace;
 }
 
-#voltar {
+.dado {
+    width: 30px;
+    height: 30px;
+    background-color: var(--bg-color);
+    border: var(--line-color) solid 2px;
+    border-radius: 5px;
+    color: #F8F9FA;
+    text-align: center;
+}
+
+
+#rolar {
     position: absolute;
     top: 20px;
-    left: 0;
+    right: 0;
     margin: 10px;
-    border: none;
+    border: var(--line-color) solid 1px;
     background-color: transparent;
     cursor: pointer;
+    background-color: var(--bg-color);
+
+}
+
+#compar {
+    margin-top: 20px;
+    border: var(--line-color) solid 1px;
+    background-color: transparent;
+    cursor: pointer;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+}
+
+#compartilhar {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    margin: 10px;
+    border: var(--line-color) solid 1px;
+    background-color: transparent;
+    cursor: pointer;
+    background-color: var(--bg-color);
+
+}
+
+#result {
+    display: none;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.rolar {
+    border: var(--line-color) solid 1px;
+    background-color: transparent;
+    cursor: pointer;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    color: #F8F9FA;
 }
 
 #voltar {
@@ -23,10 +72,8 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    min-width: 20px;
-    min-height: 20px;
-    z-index: 999;
 }
+
 
 #voltar .ivoltar {
     display: none;
@@ -68,7 +115,7 @@
 /* Estiliza o corpo da página */
 body {
     background-color: #F8F9FA;
-    font-family: var(--font-family);
+    font-family: var(--font-family) !important;
     color: var(--text-color);
     display: flex;
     justify-content: center;

@@ -5,16 +5,6 @@
     --font-family: 'Courier New', Courier, monospace;
 }
 
-#voltar {
-    position: absolute;
-    top: 20px;
-    left: 0;
-    margin: 10px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-}
-
 #rolar {
     position: absolute;
     top: 20px;
@@ -27,6 +17,33 @@
 
 }
 
+#compar {
+    margin-top: 20px;
+    border: var(--line-color) solid 1px;
+    background-color: transparent;
+    cursor: pointer;
+    background-color: var(--bg-color);
+    border-radius: 5px;
+}
+
+#compartilhar {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    margin: 10px;
+    border: var(--line-color) solid 1px;
+    background-color: transparent;
+    cursor: pointer;
+    background-color: var(--bg-color);
+
+}
+
+#result{
+    display: none;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
 .rolar {
     border: var(--line-color) solid 1px;
     background-color: transparent;
@@ -34,6 +51,16 @@
     background-color: var(--bg-color);
     border-radius: 5px;
     color: #F8F9FA;
+}
+
+#voltar {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    margin: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 #voltar .ivoltar {
@@ -74,6 +101,7 @@
     border: var(--line-color) solid 2px;
     border-radius: 5px;
     color: #F8F9FA;
+    text-align: center;
 }
 
 * {
