@@ -5,6 +5,40 @@
     --font-family: 'Courier New', Courier, monospace;
 }
 
+@media (max-width: 900px) {
+  #rolar span,
+  #compartilhar span {
+    display: none;
+  }
+  #rolar,
+  #compartilhar {
+    position: fixed; 
+    width: 40px; 
+    height: 35px; 
+    padding: 0; 
+    margin: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Evita que texto grande quebre o tamanho do retângulo */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #rolar {
+    top: 10px;
+    right: 10px;
+  }
+
+  #compartilhar {
+    top: 55px; /* Ajustado para não sobrepor o botão #rolar */
+    right: 10px;
+  }
+}
+
 #rolar {
     position: absolute;
     top: 20px;
