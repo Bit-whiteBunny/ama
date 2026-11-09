@@ -7,11 +7,12 @@
 
 @media (max-width: 900px) {
   #rolar #ii,
-  #compartilhar span {
+  #compartilhar #is {
     display: none;
   }
   
-  #rolar .irolar{
+  #rolar .irolar,
+    #compartilhar .ishare{
     display: inline-block;
   }
   #rolar 
@@ -80,6 +81,9 @@
 }
 
 #compartilhar {
+    .ishare{
+        display: none;
+    }
     position: absolute;
     top: 80px;
     right: 0;
