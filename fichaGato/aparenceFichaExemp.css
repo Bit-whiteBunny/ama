@@ -11,7 +11,7 @@
     display: none;
   }
   
-  #rolar #irolar{
+  #rolar .irolar{
     display: inline-block;
   }
   #rolar 
@@ -56,7 +56,7 @@
 
 
 #rolar {
-    #irolar{
+    .irolar{
         display: none;
     }
     position: absolute;
