@@ -6,10 +6,15 @@
 }
 
 @media (max-width: 900px) {
-  #rolar span,
+  #rolar #ii,
   #compartilhar span {
     display: none;
   }
+  
+  #rolar #irolar{
+    display: inline-block;
+  }
+  #rolar 
   #rolar,
   #compartilhar {
     position: fixed; 
