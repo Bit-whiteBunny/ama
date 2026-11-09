@@ -245,7 +245,7 @@
             for (let i = 0; i < valores.length; i++) {
                 modeloRes += `<div class="dado">${valores[i]}</div>`;
             }
-            let modeloSoma = "<br><div>Soma dos dados: $somaDosDados</div>"
+            let modeloSoma = `<br><div>Soma dos dados: ${somaDosDados}</div>`
             $('#result').append(modeloRes);
             $('#result').append(modeloSoma);
             $('#result').css('display', 'flex');
