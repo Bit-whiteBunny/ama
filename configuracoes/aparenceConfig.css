@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #F8F9FA;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Playfair Display", serif;
 }
 
 :root {
@@ -21,11 +21,11 @@ body {
     width: 400px;
     height: 500px;
     padding: 30px;
-    background: #f899b0;
+    background: #9ab1dd;
     border: none;
     border-radius: 20px;
-    box-shadow: 0 0 10px #6f2f3f;;
-    color: #6f2f3f;
+    box-shadow: 0 0 10px #2d2d62;
+    color: #2d2d62;
     flex-direction: column;
 }
 
@@ -80,14 +80,28 @@ body {
 }
 
 #painel button {
-    background-color: #9ab1dd;
+    background-color: #B4D699;
     font-size: 20px;
     border: none;
     border-radius: 10px;
     padding: 5px;
     margin: 5px;
     width: 260px;
-    color: #2d2d62;
-    box-shadow: 0 0 5px #2d2d62;
+    color: #46563C;
+    box-shadow: 0 0 5px #46563C;
+    cursor: pointer;
 }
 
+#excluir {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#excluir button {
+    background-color: #f899b0;
+    box-shadow: 0 0 10px #6f2f3f;
+    color: #6f2f3f
+}
