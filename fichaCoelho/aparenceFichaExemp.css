@@ -6,37 +6,45 @@
 }
 
 @media (max-width: 900px) {
-  #rolar span,
-  #compartilhar span {
-    display: none;
-  }
-  #rolar,
-  #compartilhar {
-    position: fixed; 
-    width: 40px; 
-    height: 35px; 
-    padding: 0; 
-    margin: 5px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    #rolar #ii,
+    #compartilhar #is {
+        display: none;
+    }
 
-    /* Evita que texto grande quebre o tamanho do retângulo */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+    #rolar .irolar,
+    #compartilhar .ishare {
+        display: inline-block;
+    }
 
-  #rolar {
-    top: 10px;
-    right: 10px;
-  }
+    #rolar,
+    #compartilhar {
+        position: fixed;
+        width: 40px;
+        height: 35px;
+        padding: 0;
+        margin: 5px;
 
-  #compartilhar {
-    top: 55px; /* Ajustado para não sobrepor o botão #rolar */
-    right: 10px;
-  }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        /* Evita que texto grande quebre o tamanho do retângulo */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    #rolar {
+        top: 10px;
+        right: 10px;
+    }
+
+    #compartilhar {
+        top: 55px;
+        /* Ajustado para não sobrepor o botão #rolar */
+        right: 10px;
+    }
 }
 
 #rolar {
@@ -49,6 +57,10 @@
     cursor: pointer;
     background-color: var(--bg-color);
 
+}
+
+.irolar {
+    display: none;
 }
 
 #compar {
@@ -72,7 +84,11 @@
 
 }
 
-#result{
+.ishare {
+    display: none;
+}
+
+#result {
     display: none;
     flex-wrap: wrap;
     gap: 5px;
@@ -129,7 +145,7 @@
     }
 }
 
-.dado{
+.dado {
     width: 30px;
     height: 30px;
     background-color: var(--bg-color);
