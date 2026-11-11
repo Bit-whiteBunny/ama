@@ -242,22 +242,26 @@
         amorSVG.drawsvg('animate');
 
         function rolar() {
-            let numDeDados = $('#num').val();
-            let valores = [];
-            let somaDosDados = 0;
-            for (let i = 0; i < numDeDados; i++) {
-                valores[i] = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
-                somaDosDados += valores[i];
+            if ($('#num').val() > 1000){
+                alert("Erro! Você pode rolar no máximo 1000 dados!");
+            } else {
+                let numDeDados = $('#num').val();
+                let valores = [];
+                let somaDosDados = 0;
+                for (let i = 0; i < numDeDados; i++) {
+                    valores[i] = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+                    somaDosDados += valores[i];
+                }
+                $('#perg').css('display', 'none');
+                let modeloRes = ' ';
+                for (let i = 0; i < valores.length; i++) {
+                    modeloRes += `<div class="dado">${valores[i]}</div>`;
+                }
+                let modeloSoma = `<br><div>Soma dos dados: ${somaDosDados}</div>`
+                $('#result').append(modeloRes);
+                $('#result').append(modeloSoma);
+                $('#result').css('display', 'flex');
             }
-            $('#perg').css('display', 'none');
-            let modeloRes = ' ';
-            for (let i = 0; i < valores.length; i++) {
-                modeloRes += `<div class="dado">${valores[i]}</div>`;
-            }
-            let modeloSoma = `<br><div>Soma dos dados: ${somaDosDados}</div>`
-            $('#result').append(modeloRes);
-            $('#result').append(modeloSoma);
-            $('#result').css('display', 'flex');
         }
         $('#staticBackdrop').on('hidden.bs.modal', function () {
             $('#perg').css('display', 'block');
