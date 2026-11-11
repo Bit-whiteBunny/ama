@@ -99,6 +99,19 @@
     display: none;
 }
 
+#printar {
+    position: absolute;
+    top: 140px;
+    right: 0;
+    margin: 10px;
+    border: var(--line-color) solid 1px;
+    background-color: transparent;
+    cursor: pointer;
+    background-color: var(--bg-color);
+
+}
+
+
 #result {
     display: none;
     flex-wrap: wrap;
@@ -173,7 +186,7 @@ body {
 }
 
 /* Container principal que simula o papel/ficha */
-.dados-ficha {
+.dados-ficha-impressao-area {
     background-color: var(--bg-color);
     width: 100%;
     max-width: 650px;
@@ -384,4 +397,25 @@ body {
     width: 90px;
     height: auto;
     pointer-events: none;
+}
+
+@media print {
+
+    /* Esconde tudo na página */
+    body * {
+        visibility: hidden;
+    }
+
+    /* Torna visível apenas a área escolhida e o que estiver dentro dela */
+    .dados-ficha-impressao-area * {
+        visibility: visible;
+    }
+
+    /* Posiciona a área no topo esquerdo da folha */
+    .dados-ficha-impressao-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
 }
