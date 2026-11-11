@@ -15,7 +15,7 @@
 <body>
     <div id="atalhos">
         <button>
-            <a href="../livroDeRegras/livro.html"><svg id="in"
+            <a href="../livroDeRegras/livro.php"><svg id="in"
                     xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                     <!--  <path d="M0 0h24v24H0z" fill="none" /> -->
@@ -29,7 +29,7 @@
             Regras
         </button>
         <button>
-            <a href="../fichas/fichas.html"><svg id="in2" xmlns="http://www.w3.org/2000/svg"
+            <a href="../fichas/fichas.php"><svg id="in2" xmlns="http://www.w3.org/2000/svg"
                     width="3em" height="3em" viewBox="0 0 32 32" fill="none"
                     stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
              <!--        <path d="M0 0h32v32H0z" fill="none" /> -->
@@ -54,7 +54,7 @@
         livroSVG.drawsvg('animate');
         fichaSVG.drawsvg('animate');
     </script>
-    <a href="../configuracoes/configUserAMA.html" id="config"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" style="color: #2d2d62;"
+    <a href="../configuracoes/configUserAMA.php" id="config"><svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" style="color: #2d2d62;"
             viewBox="0 0 36 36">
             <path d="M0 0h36v36H0z" fill="none" />
             <path fill="currentColor"
