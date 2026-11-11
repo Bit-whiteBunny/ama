@@ -47,7 +47,7 @@
                 confirmButtonText: 'Ok'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location = 'inicio/paginaInicial.html';
+                    window.location = 'inicio/paginaInicial.php';
                 }
             });
         });
