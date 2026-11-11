@@ -14,7 +14,7 @@
 
 <body>
     <button id="voltar">
-        <a href="../inicio/paginaInicial.html"> <img class="logo" src="../imagens/logo.jpeg" alt="Brasão da Arcane Mirror Academy"
+        <a href="../inicio/paginaInicial.php"> <img class="logo" src="../imagens/logo.jpeg" alt="Brasão da Arcane Mirror Academy"
             height="100px">
             <span class="ivoltar">&#8592;</span>
         </a>
