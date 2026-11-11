@@ -13,7 +13,7 @@
 
   <body>
     <button id="voltar">
-      <a href="../inicio/paginaInicial.html">
+      <a href="../inicio/paginaInicial.php">
         <img
           class="logo"
           src="../imagens/logo.jpeg"
