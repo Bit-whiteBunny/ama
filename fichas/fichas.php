@@ -17,7 +17,7 @@
 <body>
     <img src="../imagens/arcaneMirrorAcademy.jpeg" alt="Brasão da Arcane Mirror Academy" id="fundo">
     <button id="voltar">
-        <a href="../inicio/paginaInicial.html"> <img src="../imagens/logo.jpeg" class="logo" alt="Brasão da Arcane Mirror Academy"
+        <a href="../inicio/paginaInicial.php"> <img src="../imagens/logo.jpeg" class="logo" alt="Brasão da Arcane Mirror Academy"
                 height="100px">
             <span class="ivoltar">&#8592;</span>
         </a>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="modal-body">
                         <button id="casaRainha">
-                            <a href="../fichaCopas/fichaExemp.html"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                            <a href="../fichaCopas/fichaExemp.php"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
                                     height="1em" viewBox="0 0 24 24" style="width: 50px; height: 50px; color: #6f2f3f;">
                                     <path d="M0 0h24v24H0z" fill="none" />
                                     <path fill="currentColor"
@@ -44,7 +44,7 @@
                                 </svg></a>
                         </button>
                         <button id="casaChapeleiro">
-                            <a href="../fichaChapeleiro/fichaExemp.html"> <svg xmlns="http://www.w3.org/2000/svg"
+                            <a href="../fichaChapeleiro/fichaExemp.php"> <svg xmlns="http://www.w3.org/2000/svg"
                                     width="1em" height="1em" viewBox="0 0 64 64"
                                     style="width: 50px; height: 50px; color: #46563c;">
                                     <path d="M0 0h64v64H0z" fill="none" />
@@ -53,11 +53,11 @@
                                 </svg></a>
                         </button>
                         <button id="casaGato">
-                            <a href="../fichaGato/fichaExemp.html"><img src="../imagens/gato.png"
+                            <a href="../fichaGato/fichaExemp.php"><img src="../imagens/gato.png"
                                     alt="Imagem do sorriso do gato" style="width: 50px; height: 50px;"></a>
                         </button>
                         <button id="casaCoelho">
-                            <a href="../fichaCoelho/fichaExemp.html"><img src="../imagens/coelho.png"
+                            <a href="../fichaCoelho/fichaExemp.php"><img src="../imagens/coelho.png"
                                     alt="Imagem do coelho" style="width: 60px; height: 60px;"></a>
                         </button>
                     </div>
