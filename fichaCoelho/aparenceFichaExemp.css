@@ -23,16 +23,6 @@ html, body {
     color: var(--text-color);
 }
 
-/* Container responsável pela barra de rolagem horizontal da ficha */
-.container-rolagem {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
 /* Container principal que simula o papel/ficha */
 .dados-ficha-impressao-area {
     background-color: var(--bg-color);
@@ -310,7 +300,7 @@ html, body {
 
 
 @media (max-width: 700px) {
-    .container-rolagem {
+    body {
         justify-content: flex-start;
     }
 }
@@ -318,25 +308,25 @@ html, body {
 @media (max-width: 900px) {
     #rolar #ii,
     #compartilhar #is {
-        display: none !important;
+        display: none;
     }
 
     #rolar .irolar,
     #compartilhar .ishare {
-        display: inline-block !important;
+        display: inline-block;
     }
 
     #rolar,
     #compartilhar,
     #printar {
-        position: fixed !important;
-        right: 15px !important;
-        left: auto !important;
-        margin: 0 !important;
-        display: flex !important;
+        position: fixed;
+        right: 15px;
+        left: auto;
+        margin: 0;
+        display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 9999 !important;
+        z-index: 9999;
         background-color: var(--bg-color);
         border: var(--line-color) solid 1px;
         border-radius: 5px;
@@ -344,48 +334,43 @@ html, body {
     }
 
     #rolar {
-        top: 15px !important;
+        top: 15px;
         width: 40px;
         height: 35px;
     }
 
     #compartilhar {
-        top: 60px !important;
+        top: 60px;
         width: 40px;
         height: 35px;
     }
 
     #printar {
-        top: 105px !important;
+        top: 105px;
         width: auto;
         height: 35px;
         padding: 0 12px;
     }
 
     #voltar .logo {
-        display: none !important;
+        display: none;
     }
 
     #voltar .ivoltar {
-        display: inline-block !important;
+        display: inline-block;
     }
 
     #voltar {
-        position: fixed !important;
-        top: 15px !important;
-        left: 15px !important;
-        margin: 0 !important;
+        position: fixed;
         width: 40px;
         height: 40px;
         background-color: var(--bg-color);
         border: 2px solid var(--text-color);
         border-radius: 50%;
-        display: flex !important;
+        display: flex;
         align-items: center;
         justify-content: center;
         padding: 0;
-        z-index: 9999 !important;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
 }
 
@@ -401,6 +386,5 @@ html, body {
         left: 0;
         top: 0;
         width: 100%;
-        min-width: unset;
     }
 }
