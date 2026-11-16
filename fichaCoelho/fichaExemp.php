@@ -19,7 +19,7 @@
     </button>
 
     <!-- Formulário principal da ficha -->
-    <form class="dados-ficha">
+    <form class="dados-ficha-impressao-area">
         <!-- Campo para inserir o nome do personagem -->
         <div class="campo-linha">
             <label for="nome">Nome:</label>
@@ -222,6 +222,9 @@
             </div>
         </div>
     </div>
+
+    <button id="printar" class="btn btn-primary" onclick="window.print()">
+        <span id="iprint">Imprimir</span> <span class="iprint"></span></button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

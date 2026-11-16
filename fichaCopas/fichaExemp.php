@@ -19,7 +19,7 @@
         </a>
     </button>
     <!-- Formulário principal da ficha -->
-    <form class="dados-ficha">
+    <form class="dados-ficha-impressao-area">
         <!-- Campo para inserir o nome do personagem -->
         <div class="campo-linha">
             <label for="nome">Nome:</label>
@@ -230,6 +230,9 @@
         </div>
     </div>
 
+    <button id="printar" class="btn btn-primary" onclick="window.print()">
+        <span id="iprint">Imprimir</span> <span class="iprint"></span></button>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
@@ -237,10 +240,18 @@
     <script src="../jquery.drawsvg.min.js"></script>
     <script>
         // Inicializa a animação drawsvg para cada ícone com seu respectivo tempo de duração
-        var cafeSVG = $('#in').drawsvg({ duration: 1200 });
-        var imaginSVG = $('#in2').drawsvg({ duration: 2500 });
-        var caosSVG = $('#in3').drawsvg({ duration: 2500 });
-        var amorSVG = $('#in4').drawsvg({ duration: 1200 });
+        var cafeSVG = $('#in').drawsvg({
+            duration: 1200
+        });
+        var imaginSVG = $('#in2').drawsvg({
+            duration: 2500
+        });
+        var caosSVG = $('#in3').drawsvg({
+            duration: 2500
+        });
+        var amorSVG = $('#in4').drawsvg({
+            duration: 1200
+        });
 
         // Dispara o efeito de animação de desenho nos SVGs
         cafeSVG.drawsvg('animate');
@@ -249,7 +260,7 @@
         amorSVG.drawsvg('animate');
 
         function rolar() {
-            if ($('#num').val() > 1000){
+            if ($('#num').val() > 1000) {
                 alert("Erro! Você pode rolar no máximo 1000 dados!");
             } else {
                 let numDeDados = $('#num').val();
@@ -270,7 +281,7 @@
                 $('#result').css('display', 'flex');
             }
         }
-        $('#staticBackdrop').on('hidden.bs.modal', function () {
+        $('#staticBackdrop').on('hidden.bs.modal', function() {
             $('#perg').css('display', 'block');
             $('#result').css('display', 'none').empty();
             $('#num').val('');

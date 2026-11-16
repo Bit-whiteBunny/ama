@@ -18,7 +18,7 @@
         </a>
     </button>
     <!-- Formulário principal da ficha -->
-    <form class="dados-ficha">
+    <form class="dados-ficha-impressao-area">
         <!-- Campo para inserir o nome do personagem -->
         <div class="campo-linha">
             <label for="nome">Nome:</label>

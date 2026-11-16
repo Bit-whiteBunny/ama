@@ -18,7 +18,7 @@
         </a>
     </button>
     <!-- Formulário principal da ficha -->
-    <form class="dados-ficha">
+    <form class="dados-ficha-impressao-area">
         <!-- Campo para inserir o nome do personagem -->
         <div class="campo-linha">
             <label for="nome">Nome:</label>
@@ -170,7 +170,13 @@
     </form>
 
 
-    <button id="rolar" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> <span>Rolar dado</span></button>
+    <button id="rolar" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><span id="ii">Rolar dados</span><span class="irolar"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                height="1em" viewBox="0 0 16 16">
+                <path d="M0 0h16v16H0z" fill="none" />
+                <path fill="#000"
+                    d="M3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3zm1 5.5a1.5 1.5 0 1 1 0-3a1.5 1.5 0 0 1 0 3m8 0a1.5 1.5 0 1 1 0-3a1.5 1.5 0 0 1 0 3m1.5 6.5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0M12 9.5a1.5 1.5 0 1 1 0-3a1.5 1.5 0 0 1 0 3M5.5 12a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0M4 9.5a1.5 1.5 0 1 1 0-3a1.5 1.5 0 0 1 0 3" />
+            </svg>
+        </span></button>
 
     <div class="modal" id="staticBackdrop" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
@@ -192,7 +198,13 @@
 
     <button id="compartilhar" class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-        <span>Compartilhar ficha</span>
+         <span id="is">Compartilhar ficha</span>
+        <span class="ishare"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path fill="#000"
+                    d="M20.336 3.221L3.873 8.71a.35.35 0 0 0-.027.654l6.05 2.593a.2.2 0 0 0 .196-.021l5.931-4.238c.184-.13.41.096.28.28l-4.238 5.931a.2.2 0 0 0-.02.195l2.592 6.05a.35.35 0 0 0 .654-.026L20.78 3.664a.35.35 0 0 0-.443-.443" />
+            </svg>
+        </span>
     </button>
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -213,6 +225,9 @@
             </div>
         </div>
     </div>
+
+    <button id="printar" class="btn btn-primary" onclick="window.print()">
+        <span id="iprint">Imprimir</span> <span class="iprint"></span></button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
