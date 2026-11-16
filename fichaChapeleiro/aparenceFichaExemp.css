@@ -5,48 +5,6 @@
     --font-family: 'Courier New', Courier, monospace;
 }
 
-@media (max-width: 900px) {
-
-    #rolar #ii,
-    #compartilhar #is {
-        display: none;
-    }
-
-    #rolar .irolar,
-    #compartilhar .ishare {
-        display: inline-block;
-    }
-
-    #rolar,
-    #compartilhar {
-        position: fixed;
-        width: 40px;
-        height: 35px;
-        padding: 0;
-        margin: 5px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        /* Evita que texto grande quebre o tamanho do retângulo */
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-
-    #rolar {
-        top: 10px;
-        right: 10px;
-    }
-
-    #compartilhar {
-        top: 55px;
-        /* Ajustado para não sobrepor o botão #rolar */
-        right: 10px;
-    }
-}
-
 .dado {
     width: 30px;
     height: 30px;
@@ -145,6 +103,7 @@
     }
 
     #voltar {
+        position: fixed;
         width: 40px;
         height: 40px;
         background-color: var(--bg-color);
@@ -171,13 +130,21 @@ body {
     display: flex;
     justify-content: center;
     padding: 20px;
+    overflow-x: auto;
+}
+
+@media (max-width: 700px) {
+  body {
+    justify-content: flex-start;
+  }
 }
 
 /* Container principal que simula o papel/ficha */
 .dados-ficha-impressao-area{ 
     background-color: var(--bg-color);
     width: 100%;
-    max-width: 650px;
+    min-width: 650px;
+    width: 650px;
     padding: 30px;
     border-radius: 8px;
     position: relative;
@@ -418,4 +385,48 @@ body {
         top: 0;
         width: 100%;
     }
+}
+
+@media (max-width: 900px) { 
+  #rolar #ii, #compartilhar #is { 
+    display: none; 
+  } 
+  
+  #rolar .irolar, #compartilhar .ishare { 
+    display: inline-block; 
+  } 
+
+  #rolar, #compartilhar, #printar { 
+    position: fixed; 
+    right: 15px; 
+    left: auto;
+    margin: 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 9999; 
+    background-color: var(--bg-color);
+    border: var(--line-color) solid 1px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  } 
+
+  #rolar { 
+    top: 15px; 
+    width: 40px; 
+    height: 35px; 
+  } 
+
+  #compartilhar { 
+    top: 60px; 
+    width: 40px; 
+    height: 35px; 
+  } 
+
+  #printar { 
+    top: 105px; 
+    width: auto;
+    height: 35px;
+    padding: 0 12px;
+  }
 }
