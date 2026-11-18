@@ -5,16 +5,15 @@
     --font-family: 'Courier New', Courier, monospace;
 }
 
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-
 /* Trava a tela do celular para impedir que os botões fixos arrastem junto com o zoom/pan */
-html, body {
+html,
+body {
     width: 100%;
     max-width: 100vw;
     overflow-x: auto;
@@ -27,7 +26,6 @@ html, body {
     justify-content: center;
 }
 
-
 /* Container principal que simula o papel/ficha */
 .dados-ficha-impressao-area {
     background-color: var(--bg-color);
@@ -37,7 +35,6 @@ html, body {
     border-radius: 8px;
     position: relative;
 }
-
 
 /* Botões - Estilo Desktop */
 #rolar {
@@ -50,11 +47,12 @@ html, body {
     background-color: var(--bg-color);
 }
 
-
-.irolar {
+.irolar,
+.ishare,
+.iprint,
+.isave {
     display: none;
 }
-
 
 #compar {
     margin-top: 20px;
@@ -63,7 +61,6 @@ html, body {
     background-color: var(--bg-color);
     border-radius: 5px;
 }
-
 
 #compartilhar {
     position: absolute;
@@ -75,12 +72,6 @@ html, body {
     background-color: var(--bg-color);
 }
 
-
-.ishare {
-    display: none;
-}
-
-
 #printar {
     position: absolute;
     top: 140px;
@@ -91,13 +82,23 @@ html, body {
     background-color: var(--bg-color);
 }
 
+#envio {
+    position: absolute;
+    top: 200px;
+    right: 0;
+    margin: 10px;
+    border: var(--line-color) solid 1px;
+    background-color: transparent;
+    cursor: pointer;
+    background-color: var(--bg-color);
+
+}
 
 #result {
     display: none;
     flex-wrap: wrap;
     gap: 5px;
 }
-
 
 .rolar {
     border: var(--line-color) solid 1px;
@@ -106,7 +107,6 @@ html, body {
     border-radius: 5px;
     color: #F8F9FA;
 }
-
 
 #voltar {
     position: absolute;
@@ -119,7 +119,6 @@ html, body {
     z-index: 999;
 }
 
-
 #voltar .ivoltar {
     display: none;
     font-size: 24px;
@@ -127,7 +126,6 @@ html, body {
     color: var(--text-color);
     text-decoration: none;
 }
-
 
 .dado {
     width: 30px;
@@ -139,7 +137,6 @@ html, body {
     text-align: center;
 }
 
-
 /* Estilização para agrupar rótulo e input em linha */
 .campo-linha {
     display: flex;
@@ -149,12 +146,10 @@ html, body {
     font-size: 0.95rem;
 }
 
-
 .campo-linha label {
     white-space: nowrap;
     margin-right: 6px;
 }
-
 
 .campo-linha input[type="text"] {
     flex: 1;
@@ -168,12 +163,10 @@ html, body {
     padding: 2px 4px;
 }
 
-
 /* Espaçamento inferior para os blocos de texto maior */
 .campo-texto {
     margin-bottom: 25px;
 }
-
 
 .campo-texto label {
     display: block;
@@ -181,7 +174,6 @@ html, body {
     margin-bottom: 6px;
     font-size: 0.95rem;
 }
-
 
 .campo-texto textarea {
     width: 100%;
@@ -196,7 +188,6 @@ html, body {
     resize: vertical;
 }
 
-
 .campo-texto2 textarea {
     width: 85%;
     background: transparent;
@@ -210,7 +201,6 @@ html, body {
     resize: vertical;
 }
 
-
 /* Seção principal para os atributos e habilidades */
 .secao-atributos {
     display: grid;
@@ -219,13 +209,11 @@ html, body {
     margin-bottom: 25px;
 }
 
-
 .secao-atributos h3 {
     grid-column: 1 / -1;
     font-size: 1.1rem;
     margin-bottom: 5px;
 }
-
 
 .grupo-animacao {
     display: flex;
@@ -233,14 +221,12 @@ html, body {
     gap: 15px;
 }
 
-
 .linha-icone {
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 1.2rem;
 }
-
 
 .linha-icone input {
     width: 60px;
@@ -253,13 +239,11 @@ html, body {
     outline: none;
 }
 
-
 .coluna-checkbox {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
-
 
 .item-checkbox {
     display: flex;
@@ -268,7 +252,6 @@ html, body {
     font-size: 0.9rem;
     font-weight: bold;
 }
-
 
 .item-checkbox input[type="checkbox"] {
     appearance: none;
@@ -281,11 +264,9 @@ html, body {
     background: transparent;
 }
 
-
 .item-checkbox input[type="checkbox"]:checked {
     background-color: var(--text-color);
 }
-
 
 /* Seção de status (PV, PE e caixas de seleção) */
 .secao-status {
@@ -296,7 +277,6 @@ html, body {
     align-items: start;
 }
 
-
 .grupo-pv-pe {
     display: flex;
     flex-direction: column;
@@ -305,13 +285,11 @@ html, body {
     font-size: 1.1rem;
 }
 
-
 .item-pv-pe {
     display: flex;
     align-items: center;
     gap: 8px;
 }
-
 
 .item-pv-pe input {
     width: 70px;
@@ -324,8 +302,7 @@ html, body {
     outline: none;
 }
 
-
-/* Estilização e posicionamento da silhueta decorativa do gato */
+/* Estilização e posicionamento da silhueta decorativa do coelho */
 .icone-gato {
     position: absolute;
     bottom: 20px;
@@ -336,31 +313,32 @@ html, body {
 }
 
 
-
-
 @media (max-width: 700px) {
     body {
         justify-content: flex-start;
     }
 }
 
-
 @media (max-width: 900px) {
+
     #rolar #ii,
-    #compartilhar #is {
+    #compartilhar #is,
+    #printar #iprint,
+    #envio #isave {
         display: none;
     }
 
-
     #rolar .irolar,
-    #compartilhar .ishare {
+    #compartilhar .ishare,
+    #printar .iprint,
+    #envio .isave {
         display: inline-block;
     }
 
-
     #rolar,
     #compartilhar,
-    #printar {
+    #printar,
+    #envio {
         position: fixed;
         right: 15px;
         left: auto;
@@ -375,13 +353,11 @@ html, body {
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
 
-
     #rolar {
         top: 15px;
         width: 40px;
         height: 35px;
     }
-
 
     #compartilhar {
         top: 60px;
@@ -389,24 +365,26 @@ html, body {
         height: 35px;
     }
 
-
     #printar {
         top: 105px;
         width: auto;
         height: 35px;
-        padding: 0 12px;
+
     }
 
+    #envio {
+        top: 150px;
+        width: auto;
+        height: 35px;
+    }
 
     #voltar .logo {
         display: none;
     }
 
-
     #voltar .ivoltar {
         display: inline-block;
     }
-
 
     #voltar {
         position: fixed;
@@ -422,14 +400,15 @@ html, body {
     }
 }
 
-
 @media print {
     body * {
         visibility: hidden;
     }
+
     .dados-ficha-impressao-area * {
         visibility: visible;
     }
+
     .dados-ficha-impressao-area {
         position: absolute;
         left: 0;
@@ -437,5 +416,3 @@ html, body {
         width: 100%;
     }
 }
-
-

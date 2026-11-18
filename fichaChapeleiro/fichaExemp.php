@@ -198,7 +198,7 @@
 
     <button id="compartilhar" class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-         <span id="is">Compartilhar ficha</span>
+        <span id="is">Compartilhar ficha</span>
         <span class="ishare"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
                 <path d="M0 0h24v24H0z" fill="none" />
                 <path fill="#000"
@@ -227,8 +227,20 @@
     </div>
 
     <button id="printar" class="btn btn-primary" onclick="window.print()">
-        <span id="iprint">Imprimir</span> <span class="iprint"></span></button>
+        <span id="iprint">Imprimir</span> <span class="iprint"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+                <path d="M0 0h16v16H0z" fill="none" />
+                <path fill="#000" d="M4 3.5A1.5 1.5 0 0 1 5.5 2h5A1.5 1.5 0 0 1 12 3.5V4h1a2 2 0 0 1 2 2v4.5a1.5 1.5 0 0 1-1.5 1.5H12v.5a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 4 12.5V12H2.5A1.5 1.5 0 0 1 1 10.5V6a2 2 0 0 1 2-2h1zm7 0a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0-.5.5V4h6zm-6 7v2a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0-.5.5" />
+            </svg>
+        </span></button>
 
+    <button type="submit" id="envio" form="from-ficha" class="btn btn-primary">
+        <span id="isave">Salvar</span> <span class="isave"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+                <path d="M0 0h16v16H0z" fill="none" />
+                <path fill="#000" d="M8.5 1.5A1.5 1.5 0 0 1 10 0h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h6c-.314.418-.5.937-.5 1.5v7.793L4.854 6.646a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l3.5-3.5a.5.5 0 0 0-.708-.708L8.5 9.293z" />
+            </svg>
+        </span>
+    </button>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
@@ -236,10 +248,18 @@
     <script src="../jquery.drawsvg.min.js"></script>
     <script>
         // Inicializa a animação drawsvg para cada ícone com seu respectivo tempo de duração
-        var cafeSVG = $('#in').drawsvg({ duration: 1200 });
-        var imaginSVG = $('#in2').drawsvg({ duration: 2500 });
-        var caosSVG = $('#in3').drawsvg({ duration: 2500 });
-        var amorSVG = $('#in4').drawsvg({ duration: 1200 });
+        var cafeSVG = $('#in').drawsvg({
+            duration: 1200
+        });
+        var imaginSVG = $('#in2').drawsvg({
+            duration: 2500
+        });
+        var caosSVG = $('#in3').drawsvg({
+            duration: 2500
+        });
+        var amorSVG = $('#in4').drawsvg({
+            duration: 1200
+        });
 
         // Dispara o efeito de animação de desenho nos SVGs
         cafeSVG.drawsvg('animate');
@@ -248,7 +268,7 @@
         amorSVG.drawsvg('animate');
 
         function rolar() {
-            if ($('#num').val() > 1000){
+            if ($('#num').val() > 1000) {
                 alert("Erro! Você pode rolar no máximo 1000 dados!");
             } else {
                 let numDeDados = $('#num').val();
@@ -269,7 +289,7 @@
                 $('#result').css('display', 'flex');
             }
         }
-        $('#staticBackdrop').on('hidden.bs.modal', function () {
+        $('#staticBackdrop').on('hidden.bs.modal', function() {
             $('#perg').css('display', 'block');
             $('#result').css('display', 'none').empty();
             $('#num').val('');

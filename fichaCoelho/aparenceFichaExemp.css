@@ -12,7 +12,8 @@
 }
 
 /* Trava a tela do celular para impedir que os botões fixos arrastem junto com o zoom/pan */
-html, body {
+html,
+body {
     width: 100%;
     max-width: 100vw;
     overflow-x: auto;
@@ -35,7 +36,6 @@ html, body {
     position: relative;
 }
 
-/* Botões - Estilo Desktop */
 #rolar {
     position: absolute;
     top: 20px;
@@ -46,7 +46,10 @@ html, body {
     background-color: var(--bg-color);
 }
 
-.irolar {
+.irolar,
+.ishare,
+.iprint,
+.isave {
     display: none;
 }
 
@@ -68,10 +71,6 @@ html, body {
     background-color: var(--bg-color);
 }
 
-.ishare {
-    display: none;
-}
-
 #printar {
     position: absolute;
     top: 140px;
@@ -80,6 +79,18 @@ html, body {
     border: var(--line-color) solid 1px;
     cursor: pointer;
     background-color: var(--bg-color);
+}
+
+#envio {
+    position: absolute;
+    top: 200px;
+    right: 0;
+    margin: 10px;
+    border: var(--line-color) solid 1px;
+    background-color: transparent;
+    cursor: pointer;
+    background-color: var(--bg-color);
+
 }
 
 #result {
@@ -308,19 +319,25 @@ html, body {
 }
 
 @media (max-width: 900px) {
+
     #rolar #ii,
-    #compartilhar #is {
+    #compartilhar #is,
+    #printar #iprint,
+    #envio #isave {
         display: none;
     }
 
     #rolar .irolar,
-    #compartilhar .ishare {
+    #compartilhar .ishare,
+    #printar .iprint,
+    #envio .isave {
         display: inline-block;
     }
 
     #rolar,
     #compartilhar,
-    #printar {
+    #printar,
+    #envio {
         position: fixed;
         right: 15px;
         left: auto;
@@ -351,7 +368,13 @@ html, body {
         top: 105px;
         width: auto;
         height: 35px;
-        padding: 0 12px;
+
+    }
+
+    #envio {
+        top: 150px;
+        width: auto;
+        height: 35px;
     }
 
     #voltar .logo {
@@ -380,9 +403,11 @@ html, body {
     body * {
         visibility: hidden;
     }
+
     .dados-ficha-impressao-area * {
         visibility: visible;
     }
+
     .dados-ficha-impressao-area {
         position: absolute;
         left: 0;
