@@ -22,48 +22,69 @@
             <span class="ivoltar">&#8592;</span>
         </a>
     </button>
-    <div id="fichas">
-        <button id="criar" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            <p>+</p>
-            Criar
-        </button>
-        <div class="modal" id="staticBackdrop" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Escolha sua casa</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <button id="casaRainha">
-                            <a href="../fichaCopas/fichaExemp.php"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
-                                    height="1em" viewBox="0 0 24 24" style="width: 50px; height: 50px; color: #6f2f3f;">
-                                    <path d="M0 0h24v24H0z" fill="none" />
-                                    <path fill="currentColor"
-                                        d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z" />
-                                </svg></a>
-                        </button>
-                        <button id="casaChapeleiro">
-                            <a href="../fichaChapeleiro/fichaExemp.php"> <svg xmlns="http://www.w3.org/2000/svg"
-                                    width="1em" height="1em" viewBox="0 0 64 64"
-                                    style="width: 50px; height: 50px; color: #46563c;">
-                                    <path d="M0 0h64v64H0z" fill="none" />
-                                    <path fill="currentColor"
-                                        d="M61.338 41.881c-1.663-3.873-5.663-4.015-11.069-3.241c.041-9.028 1.562-17.65 4.452-27.072c1.344-3.374-8.67-9.501-22.72-9.567c-14.05.066-24.065 6.192-22.721 9.566c2.873 9.365 4.384 18.047 4.438 27.07c-5.399-.771-9.394-.627-11.057 3.243C-.961 49.077 10.487 62 32 62c21.514 0 32.961-12.923 29.338-20.119m-48.856 5.962s1.357-4.745 1.14-7.254c11.804 10.624 24.954 10.624 36.757 0c.045 2.56 1.139 7.254 1.139 7.254c-11.62 11.057-27.415 11.057-39.036 0" />
-                                </svg></a>
-                        </button>
-                        <button id="casaGato">
-                            <a href="../fichaGato/fichaExemp.php"><img src="../imagens/gato.png"
-                                    alt="Imagem do sorriso do gato" style="width: 50px; height: 50px;"></a>
-                        </button>
-                        <button id="casaCoelho">
-                            <a href="../fichaCoelho/fichaExemp.php"><img src="../imagens/coelho.png"
-                                    alt="Imagem do coelho" style="width: 60px; height: 60px;"></a>
-                        </button>
-                    </div>
+
+    <div class="card-group">
+        <div class="card">
+            <img src="../imagens/coelho.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="nome-ficha">Card title</h5>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../imagens/coelho.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="nome-ficha">Card title</h5>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../imagens/coelho.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="nome-ficha">Card title</h5>
+            </div>
+        </div>
+    </div>
+
+    <button id="criar" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <p>+</p>
+        Criar
+    </button>
+    <div class="modal" id="staticBackdrop" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Escolha sua casa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <button id="casaRainha">
+                        <a href="../fichaCopas/fichaExemp.php"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                                height="1em" viewBox="0 0 24 24" style="width: 50px; height: 50px; color: #6f2f3f;">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path fill="currentColor"
+                                    d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z" />
+                            </svg></a>
+                    </button>
+                    <button id="casaChapeleiro">
+                        <a href="../fichaChapeleiro/fichaExemp.php"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="1em" height="1em" viewBox="0 0 64 64"
+                                style="width: 50px; height: 50px; color: #46563c;">
+                                <path d="M0 0h64v64H0z" fill="none" />
+                                <path fill="currentColor"
+                                    d="M61.338 41.881c-1.663-3.873-5.663-4.015-11.069-3.241c.041-9.028 1.562-17.65 4.452-27.072c1.344-3.374-8.67-9.501-22.72-9.567c-14.05.066-24.065 6.192-22.721 9.566c2.873 9.365 4.384 18.047 4.438 27.07c-5.399-.771-9.394-.627-11.057 3.243C-.961 49.077 10.487 62 32 62c21.514 0 32.961-12.923 29.338-20.119m-48.856 5.962s1.357-4.745 1.14-7.254c11.804 10.624 24.954 10.624 36.757 0c.045 2.56 1.139 7.254 1.139 7.254c-11.62 11.057-27.415 11.057-39.036 0" />
+                            </svg></a>
+                    </button>
+                    <button id="casaGato">
+                        <a href="../fichaGato/fichaExemp.php"><img src="../imagens/gato.png"
+                                alt="Imagem do sorriso do gato" style="width: 50px; height: 50px;"></a>
+                    </button>
+                    <button id="casaCoelho">
+                        <a href="../fichaCoelho/fichaExemp.php"><img src="../imagens/coelho.png"
+                                alt="Imagem do coelho" style="width: 60px; height: 60px;"></a>
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

@@ -135,3 +135,11 @@ p {
 #casaGato {
     background-color: #d593d3;
 }
+
+.card {
+    width: 100px;
+    height: 200px;
+    margin: 15px;
+    border: 1px solid #F8F9FB;
+    box-shadow: none;
+}
