@@ -1,29 +1,28 @@
 <?php
-    session_start();
-    include '../conecta.php';
+session_start();
+include ('conecta.php');
 
-    $nome = $_POST['nome'];
-    $cpf = $_POST['cpf'];
-    $data_nascimento = $_POST['data_nascimento'];
-    $endereco = $_POST['endereco'];
+$usuario = $_POST['usuario'];
+$email = $_POST['email'];
+$senha = $_POST['senha'];
 
-    if (empty($nome) || empty($data_nascimento)) {
-        $_SESSION['erro'] = "Nome e data de nascimento são obrigatórios.";
-        header("Location: criar.php");
-        exit();
-    }
+if (empty($email) || empty($usuario) || empty($senha)) {
+    $_SESSION['erro'] = "Todos os campos são obrigatórios.";
+    header("Location: cadastro.php");
+    exit();
+}
 
-    //sql para inserir no banco
-    $sql = "INSERT INTO aluno (nome, data_nascimento, cpf, endereco)
-            VALUES ('$nome', '$data_nascimento', '$cpf', '$endereco')";
+//sql para inserir no banco
+$sql = "INSERT INTO jogador (email, senha, username)
+            VALUES ('$email', '$senha', '$usuario')";
 
-    if (mysqli_query($conexao, $sql)) {
-        $_SESSION['msg'] = "Aluno cadastrado com sucesso.";
-        header("Location: criar.php");
-    } else {
-        $_SESSION['erro'] = "Ocorreu um erro: " . mysqli_error($conexao);
-        header("Location: criar.php");
-    }
+if (mysqli_query($conexao, $sql)) {
+    $_SESSION['msg'] = "Cadastro enviado";
+    header("Location: cadastro.php");
+    exit();
+} else {
+    $_SESSION['erro'] = "Ocorreu um erro: " . mysqli_error($conexao);
+    header("Location: cadastro.php");
+    exit();
+}
 
-    mysqli_close($conexao);
-?>
