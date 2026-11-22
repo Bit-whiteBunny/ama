@@ -6,12 +6,6 @@ $usuario = $_POST['usuario'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
-if (empty($email) || empty($usuario) || empty($senha)) {
-    $_SESSION['erro'] = "Todos os campos são obrigatórios.";
-    header("Location: cadastro.php");
-    exit();
-}
-
 //Verificar se o usuário já está cadastrado no banco de dados
 $sqlVerifica = "SELECT id FROM jogador WHERE username = '$usuario' LIMIT 1";
 $verificacao = $conexao->prepare($sqlVerifica);

@@ -5,12 +5,6 @@ include('conecta.php');
 $usuario = $_POST['usuario'];
 $senha = $_POST['senha'];
 
-if (empty($usuario) || empty($senha)) {
-    $_SESSION['erro'] = "Todos os campos são obrigatórios.";
-    header("Location: index.php");
-    exit();
-}
-
 //Verificar se o usuário já está cadastrado no banco de dados
 $sqlVerifica = "SELECT email FROM jogador WHERE username = '$usuario' AND senha = '$senha' LIMIT 1";
 $verificacao = $conexao->prepare($sqlVerifica);

@@ -14,43 +14,19 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="aparenceLogin.css">
-    <script>
-        ! function () {
-            try {
-                var t = localStorage.getItem("dash26-theme"),
-                    e = window.matchMedia("(prefers-color-scheme: dark)").matches;
-                document.documentElement.setAttribute("data-theme", t || (e ? "dark" : "light"))
-            } catch (t) {
-                document.documentElement.setAttribute("data-theme", "light")
-            }
-        }()
-    </script>
 </head>
 
 <body>
-    <div class="error-shell">
-        <div class="error-card"><span class="error-eyebrow"></span>
-            <div id="container">
-                <h1>Cadastro</h1>
-                <div class="error-description" style="text-align: left;">
-                    <?php
-                    if (!empty($_SESSION['erro'])) {
-                        echo '<script>alert("'.$_SESSION['erro'].'")</script>';
-                        unset($_SESSION['erro']);
-                    }
-                    ?>
-                    <form id="loginForm" action="salvar.php" method="POST">
-                        <div id="dados">
-                            <input type="email" name="email" id="email" class="textBox" placeholder="E-mail" required>
-                            <input type="text" name="usuario" id="usuario" class="textBox" placeholder="Usuário"
-                                required>
-                            <input type="password" name="senha" id="senha" class="textBox" placeholder="Senha" required>
-                            <button type="submit" class="submitButton">Cadastrar</button>
-                        </div>
-                    </form>
-                </div>
+    <div id="container">
+        <h1>Cadastro</h1>
+        <form id="loginForm" action="salvar.php" method="POST">
+            <div id="dados">
+                <input type="email" name="email" id="email" class="textBox" placeholder="E-mail" required>
+                <input type="text" name="usuario" id="usuario" class="textBox" placeholder="Usuário" required>
+                <input type="password" name="senha" id="senha" class="textBox" placeholder="Senha" required>
+                <button type="submit" class="submitButton">Cadastrar</button>
             </div>
-        </div>
+        </form>
     </div>
 
     <script src="jquery-4.0.0.min.js"></script>
@@ -58,7 +34,7 @@ session_start();
 
     <?php
     if (!empty($_SESSION['cadastroExiste'])) {
-        echo '<script>alert("'.$_SESSION['cadastroExiste'].'")</script>';
+        echo '<script>alert("' . $_SESSION['cadastroExiste'] . '")</script>';
         unset($_SESSION['cadastroExiste']);
     }
     ?>
