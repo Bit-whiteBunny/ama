@@ -1,5 +1,5 @@
-<?php 
-    session_start();
+<?php
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="aparenceLogin.css">
     <script>
-        ! function() {
+        ! function () {
             try {
                 var t = localStorage.getItem("dash26-theme"),
                     e = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -35,14 +35,15 @@
                 <div class="error-description" style="text-align: left;">
                     <?php
                     if (!empty($_SESSION['erro'])) {
-                        echo '<div class="alert danger"><span class="ico"><svg viewBox="0 0 24 24"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"></path><path d="m22 4-10 10-3-3"></path></svg></span><div class="body"><div class="title">Erro</div>' . $_SESSION['erro'] . '</div><button class="close" aria-label="Dismiss"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"></path></svg></button></div>';
+                        echo '<script>alert("'.$_SESSION['erro'].'")</script>';
                         unset($_SESSION['erro']);
                     }
                     ?>
                     <form id="loginForm" action="salvar.php" method="POST">
                         <div id="dados">
                             <input type="email" name="email" id="email" class="textBox" placeholder="E-mail" required>
-                            <input type="text" name="usuario" id="usuario" class="textBox" placeholder="Usuário" required>
+                            <input type="text" name="usuario" id="usuario" class="textBox" placeholder="Usuário"
+                                required>
                             <input type="password" name="senha" id="senha" class="textBox" placeholder="Senha" required>
                             <button type="submit" class="submitButton">Cadastrar</button>
                         </div>
@@ -54,6 +55,13 @@
 
     <script src="jquery-4.0.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <?php
+    if (!empty($_SESSION['cadastroExiste'])) {
+        echo '<script>alert("'.$_SESSION['cadastroExiste'].'")</script>';
+        unset($_SESSION['cadastroExiste']);
+    }
+    ?>
 
     <?php if (!empty($_SESSION['msg'])): ?>
         <script>

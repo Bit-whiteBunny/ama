@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -10,39 +14,74 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="aparenceLogin.css">
+    <script>
+        ! function () {
+            try {
+                var t = localStorage.getItem("dash26-theme"),
+                    e = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                document.documentElement.setAttribute("data-theme", t || (e ? "dark" : "light"))
+            } catch (t) {
+                document.documentElement.setAttribute("data-theme", "light")
+            }
+        }()
+    </script>
 </head>
 
 <body>
-    <div id="container">
-        <h1>Login</h1>
-        <form id="loginForm" action="">
-            <div id="dados">
-                <input type="text" class="textBox" placeholder="Usuário">
-                <input type="password" class="textBox" placeholder="Senha">
-                <button type="submit" class="submitButton">Entrar</button>
+    <div class="error-shell">
+        <div class="error-card"><span class="error-eyebrow"></span>
+            <div id="container">
+                <h1>Login</h1>
+                <div class="error-description" style="text-align: left;">
+                    <?php
+                    if (!empty($_SESSION['erro'])) {
+                        echo '<script>alert("'.$_SESSION['erro'].'")</script>';
+                        unset($_SESSION['erro']);
+                    }
+                    ?>
+                    <form id="loginForm" action="login.php">
+                        <div id="dados">
+                            <input type="text" class="textBox" placeholder="Usuário">
+                            <input type="password" class="textBox" placeholder="Senha">
+                            <button type="submit" class="submitButton">Entrar</button>
+                        </div>
+                    </form>
+                    <div id="containerInterno">
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe">Lembre-me</label>
+                        <a href="#">Esqueceu a senha?</a>
+                    </div>
+                </div>
             </div>
-        </form>
-        <div id="containerInterno">
-            <input type="checkbox" id="rememberMe">
-            <label for="rememberMe">Lembre-me</label>
-            <a href="#">Esqueceu a senha?</a>
         </div>
     </div>
-    <p><a href="">Criar conta</a></p>
+    <p><a href="cadastro.php">Criar conta</a></p>
 </body>
-
 
 </html>
 <script src="jquery-4.0.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    $(document).ready(function () {
-        // Dispara quando o formulário é enviado
-        $('#loginForm').on('submit', function (event) {
-            event.preventDefault(); // Evita o recarregamento da página
+
+<?php
+    if (!empty($_SESSION['usuarioInvalido'])) {
+        echo '<script>alert("'.$_SESSION['usuarioInvalido'].'")</script>';
+        unset($_SESSION['usuarioInvalido']);
+    }
+    ?>
+
+<?php
+    if (!empty($_SESSION['semCadastro'])) {
+        echo '<script>alert("'.$_SESSION['semCadastro'].'")</script>';
+        unset($_SESSION['semCadastro']);
+    }
+    ?>
+
+<?php if (!empty($_SESSION['msg'])): ?>
+    <script>
+        $(document).ready(function () {
             Swal.fire({
                 title: 'Sucesso!',
-                text: 'Login enviado.',
+                text: '<?= $_SESSION['msg']; ?>',
                 icon: 'success',
                 confirmButtonText: 'Ok'
             }).then((result) => {
@@ -51,5 +90,6 @@
                 }
             });
         });
-    });
-</script>
+    </script>
+    <?php unset($_SESSION['msg']); ?>
+<?php endif; ?>
