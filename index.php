@@ -32,11 +32,6 @@ session_start();
                 <button type="submit" class="submitButton">Entrar</button>
             </div>
         </form>
-        <div id="containerInterno">
-            <input type="checkbox" id="rememberMe">
-            <label for="rememberMe">Lembre-me</label>
-            <a href="#">Esqueceu a senha?</a>
-        </div>
     </div>
     <p><a href="cadastro.php">Criar conta</a></p>
 </body>

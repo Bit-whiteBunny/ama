@@ -1,25 +1,25 @@
 <?php
     session_start();
-    include '../conecta.php';
+    include('conecta.php');
 
-    $id = isset($_GET['id']) ? $_GET['id'] : null;
+    $usuario = isset($_GET['usuario']) ? $_GET['usuario'] : null;
 
     if (empty($id)) {
         $_SESSION['erro'] = "ID do aluno não fornecido.";
-        header("Location: lista.php");
+        header("Location: ../configuracoes/configUserAMA.php");
         exit();
     }
 
     //sql para excluir registro no banco
-    $sql = "DELETE FROM aluno WHERE id=$id";
+    $sql = "DELETE FROM jogador WHERE username=$usuario";
 
     if (mysqli_query($conexao, $sql)) {
-        $_SESSION['msg'] = "Aluno excluído com sucesso.";
-        header("Location: lista.php");
+        $_SESSION['contaExcluida'] = "Conta excluída com sucesso.";
+        header("Location: ../configuracoes/configUserAMA.php");
+        exit();
     } else {
         $_SESSION['erro'] = "Ocorreu um erro: " . mysqli_error($conexao);
-        header("Location: lista.php");
+        header("Location: ../configuracoes/configUserAMA.php");
+        exit();
     }
-
-    mysqli_close($conexao);
 ?>
