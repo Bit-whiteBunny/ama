@@ -78,7 +78,7 @@
                             <circle cx="40" cy="33" r="3" />
                         </g>
                     </svg>
-                    <input type="number" name="attr_espiral">
+                    <input type="number" name="attr_imagi">
                 </div>
                 <!-- Terceiro atributo com ícone SVG -->
                 <div class="linha-icone">
@@ -93,7 +93,7 @@
                             <path d="m11 11l4 4m15-3l-2 2m6 19.5L28 26m-14 5l4-4" />
                         </g>
                     </svg>
-                    <input type="number" name="attr_espelho">
+                    <input type="number" name="attr_caos">
                 </div>
                 <!-- Quarto atributo com ícone SVG -->
                 <div class="linha-icone">
@@ -104,24 +104,22 @@
                             stroke-width="32"
                             d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81c-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0 0 18 0c96.26-65.34 184.09-143.09 183-252.42c-.54-52.67-42.32-96.81-95.08-96.81" />
                     </svg>
-                    <input type="number" name="attr_coracao">
+                    <input type="number" name="attr_amor">
                 </div>
             </div>
 
             <!-- Coluna contendo checkboxes de perícias ou características -->
             <div class="coluna-checkbox">
-                <label class="item-checkbox"><input type="checkbox" name="festa_improvisada"> Festa Improvisada</label>
-                <label class="item-checkbox"><input type="checkbox" name="invencao_maluca"> Invenção Maluca</label>
-                <label class="item-checkbox"><input type="checkbox" name="pocao_aleatoria"> Poção Aleatória</label>
-                <label class="item-checkbox"><input type="checkbox" name="riso_contagiante"> Riso Contagiante</label>
-                <label class="item-checkbox"><input type="checkbox" name="distorcao_do_espaco"> Distorção do
-                    Espaço</label>
-                <label class="item-checkbox"><input type="checkbox" name="xicara_infinita"> Xícara Infinita</label>
-                <label class="item-checkbox"><input type="checkbox" name="troca_de_chapeus"> Troca de chapéus</label>
-                <label class="item-checkbox"><input type="checkbox" name="teoria_impossivel"> Teoria impossível</label>
-                <label class="item-checkbox"><input type="checkbox" name="balde_de_surpresas"> Balde de
-                    Surpresas</label>
-                <label class="item-checkbox"><input type="checkbox" name="caos_controlado"> Caos Controlado</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade1"> Festa Improvisada</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade2"> Invenção Maluca</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade3"> Poção Aleatória</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade4"> Riso Contagiante</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade5"> Distorção do Espaço</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade6"> Xícara Infinita</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade7"> Troca de chapéus</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade8"> Teoria impossível</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade9"> Balde de Surpresas</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade10"> Caos Controlado</label>
             </div>
         </div>
 
@@ -240,7 +238,7 @@
             </svg>
         </span>
     </button>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>

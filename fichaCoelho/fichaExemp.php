@@ -79,7 +79,7 @@
                             <circle cx="40" cy="33" r="3" />
                         </g>
                     </svg>
-                    <input type="number" name="attr_espiral">
+                    <input type="number" name="attr_imagi">
                 </div>
                 <!-- Terceiro atributo com ícone SVG -->
                 <div class="linha-icone">
@@ -94,7 +94,7 @@
                             <path d="m11 11l4 4m15-3l-2 2m6 19.5L28 26m-14 5l4-4" />
                         </g>
                     </svg>
-                    <input type="number" name="attr_espelho">
+                    <input type="number" name="attr_caos">
                 </div>
                 <!-- Quarto atributo com ícone SVG -->
                 <div class="linha-icone">
@@ -105,24 +105,22 @@
                             stroke-width="32"
                             d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81c-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0 0 18 0c96.26-65.34 184.09-143.09 183-252.42c-.54-52.67-42.32-96.81-95.08-96.81" />
                     </svg>
-                    <input type="number" name="attr_coracao">
+                    <input type="number" name="attr_amor">
                 </div>
             </div>
 
             <!-- Coluna contendo checkboxes de perícias ou características -->
             <div class="coluna-checkbox">
-                <label class="item-checkbox"><input type="checkbox" name="ritmo_perfeito"> Ritmo Perfeito</label>
-                <label class="item-checkbox"><input type="checkbox" name="precisao_relogio"> Precisão de Relógio</label>
-                <label class="item-checkbox"><input type="checkbox" name="biblioteca_viva"> Biblioteca Viva</label>
-                <label class="item-checkbox"><input type="checkbox" name="agenda_magica"> Agenda Mágica</label>
-                <label class="item-checkbox"><input type="checkbox" name="organizacao_impecavel"> Organização
-                    Impecável</label>
-                <label class="item-checkbox"><input type="checkbox" name="corre_corre"> Corre, Corre!</label>
-                <label class="item-checkbox"><input type="checkbox" name="marcador_temporal"> Marcador Temporal</label>
-                <label class="item-checkbox"><input type="checkbox" name="relogio_destino"> Relógio do Destino</label>
-                <label class="item-checkbox"><input type="checkbox" name="pontualidade_absoluta"> Pontualidade
-                    Absoluta</label>
-                <label class="item-checkbox"><input type="checkbox" name="dedicacao_eterna"> Dedicação Eterna</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade1"> Ritmo Perfeito</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade2"> Precisão de Relógio</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade3"> Biblioteca Viva</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade4"> Agenda Mágica</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade5"> Organização Impecável</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade6"> Corre, Corre!</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade7"> Marcador Temporal</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade8"> Relógio do Destino</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade9"> Pontualidade Absoluta</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade10"> Dedicação Eterna</label>
             </div>
         </div>
 
@@ -245,10 +243,18 @@
     <script src="../jquery.drawsvg.min.js"></script>
     <script>
         // Inicializa a animação drawsvg para cada ícone com seu respectivo tempo de duração
-        var cafeSVG = $('#in').drawsvg({ duration: 1200 });
-        var imaginSVG = $('#in2').drawsvg({ duration: 2500 });
-        var caosSVG = $('#in3').drawsvg({ duration: 2500 });
-        var amorSVG = $('#in4').drawsvg({ duration: 1200 });
+        var cafeSVG = $('#in').drawsvg({
+            duration: 1200
+        });
+        var imaginSVG = $('#in2').drawsvg({
+            duration: 2500
+        });
+        var caosSVG = $('#in3').drawsvg({
+            duration: 2500
+        });
+        var amorSVG = $('#in4').drawsvg({
+            duration: 1200
+        });
 
         // Dispara o efeito de animação de desenho nos SVGs
         cafeSVG.drawsvg('animate');
@@ -257,7 +263,7 @@
         amorSVG.drawsvg('animate');
 
         function rolar() {
-            if ($('#num').val() > 1000){
+            if ($('#num').val() > 1000) {
                 alert("Erro! Você pode rolar no máximo 1000 dados!");
             } else {
                 let numDeDados = $('#num').val();
@@ -278,7 +284,7 @@
                 $('#result').css('display', 'flex');
             }
         }
-        $('#staticBackdrop').on('hidden.bs.modal', function () {
+        $('#staticBackdrop').on('hidden.bs.modal', function() {
             $('#perg').css('display', 'block');
             $('#result').css('display', 'none').empty();
             $('#num').val('');

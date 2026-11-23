@@ -18,7 +18,7 @@
         </a>
     </button>
     <!-- Formulário principal da ficha -->
-    <form id="from-ficha" action="../crud/salvar.php" method="POST" class="dados-ficha-impressao-area">
+    <form id="from-ficha" action="../crud/salvarFicha.php" method="POST" class="dados-ficha-impressao-area">
         <!-- Campo para inserir o nome do personagem -->
         <div class="campo-linha">
             <label for="nome">Nome:</label>
@@ -78,7 +78,7 @@
                             <circle cx="40" cy="33" r="3" />
                         </g>
                     </svg>
-                    <input type="number" name="attr_espiral">
+                    <input type="number" name="attr_imagi">
                 </div>
                 <!-- Terceiro atributo com ícone SVG -->
                 <div class="linha-icone">
@@ -93,7 +93,7 @@
                             <path d="m11 11l4 4m15-3l-2 2m6 19.5L28 26m-14 5l4-4" />
                         </g>
                     </svg>
-                    <input type="number" name="attr_espelho">
+                    <input type="number" name="attr_caos">
                 </div>
                 <!-- Quarto atributo com ícone SVG -->
                 <div class="linha-icone">
@@ -104,29 +104,24 @@
                             stroke-width="32"
                             d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81c-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0 0 18 0c96.26-65.34 184.09-143.09 183-252.42c-.54-52.67-42.32-96.81-95.08-96.81" />
                     </svg>
-                    <input type="number" name="attr_coracao">
+                    <input type="number" name="attr_amor">
                 </div>
             </div>
 
             <!-- Coluna contendo checkboxes de perícias ou características -->
             <div class="coluna-checkbox">
-                <label class="item-checkbox"><input type="checkbox" name="sorriso_enganoso"> Sorriso Enganoso</label>
-                <label class="item-checkbox"><input type="checkbox" name="enigma_instantaneo"> Enigma
-                    Instantâneo</label>
-                <label class="item-checkbox"><input type="checkbox" name="sombra_brincalhona"> Sombra
-                    Brincalhona</label>
-                <label class="item-checkbox"><input type="checkbox" name="piada_perigosa"> Piada Perigosa</label>
-                <label class="item-checkbox"><input type="checkbox" name="desaparecimento_subito"> Desaparecimento
-                    Súbito</label>
-                <label class="item-checkbox"><input type="checkbox" name="duas_caras"> Duas Caras</label>
-                <label class="item-checkbox"><input type="checkbox" name="sorriso_no_escuro"> Sorriso no Escuro</label>
-                <label class="item-checkbox"><input type="checkbox" name="confusao_planejada"> Confusão
-                    Planejada</label>
-                <label class="item-checkbox"><input type="checkbox" name="charada_sem_fim"> Charada Sem Fim</label>
-                <label class="item-checkbox"><input type="checkbox" name="farsa_perfeita"> Farsa Perfeita</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade1"> Sorriso Enganoso</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade2"> Enigma Instantâneo</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade3"> Sombra Brincalhona</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade4"> Piada Perigosa</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade5"> Desaparecimento Súbito</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade6"> Duas Caras</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade7"> Sorriso no Escuro</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade8"> Confusão Planejada</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade9"> Charada Sem Fim</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade10"> Farsa Perfeita</label>
             </div>
         </div>
-
         <!-- Seção de status de combate/vida e magias -->
         <div class="secao-status">
             <!-- Grupo de campos para Pontos de Vida (PV) e Pontos de Energia (PE) -->

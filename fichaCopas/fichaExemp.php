@@ -79,7 +79,7 @@
                             <circle cx="40" cy="33" r="3" />
                         </g>
                     </svg>
-                    <input type="number" name="attr_espiral">
+                    <input type="number" name="attr_imagi">
                 </div>
                 <!-- Terceiro atributo com ícone SVG -->
                 <div class="linha-icone">
@@ -94,7 +94,7 @@
                             <path d="m11 11l4 4m15-3l-2 2m6 19.5L28 26m-14 5l4-4" />
                         </g>
                     </svg>
-                    <input type="number" name="attr_espelho">
+                    <input type="number" name="attr_caos">
                 </div>
                 <!-- Quarto atributo com ícone SVG -->
                 <div class="linha-icone">
@@ -105,25 +105,22 @@
                             stroke-width="32"
                             d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81c-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0 0 18 0c96.26-65.34 184.09-143.09 183-252.42c-.54-52.67-42.32-96.81-95.08-96.81" />
                     </svg>
-                    <input type="number" name="attr_coracao">
+                    <input type="number" name="attr_amor">
                 </div>
             </div>
 
             <!-- Coluna contendo checkboxes de perícias ou características -->
             <div class="coluna-checkbox">
-                <label class="item-checkbox"><input type="checkbox" name="coracao_protetor"> Coração Protetor</label>
-                <label class="item-checkbox"><input type="checkbox" name="comando_determinado"> Comando
-                    Determinado</label>
-                <label class="item-checkbox"><input type="checkbox" name="olhar_imponente"> Olhar Imponente</label>
-                <label class="item-checkbox"><input type="checkbox" name="decisao_justa"> Decisão Justa</label>
-                <label class="item-checkbox"><input type="checkbox" name="coroa_de_inspiracao"> Coroa de
-                    Inspiração</label>
-                <label class="item-checkbox"><input type="checkbox" name="grito_de_gurra"> Grito de Guerra </label>
-                <label class="item-checkbox"><input type="checkbox" name="forca_da_uniao"> Força da União</label>
-                <label class="item-checkbox"><input type="checkbox" name="lealdade_inquebravel"> Lealdade
-                    Inquebrável</label>
-                <label class="item-checkbox"><input type="checkbox" name="discilina_rigida"> Disciplina Rígida </label>
-                <label class="item-checkbox"><input type="checkbox" name="aura_de_justica"> Aura de Justiça</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade1"> Coração Protetor</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade2"> Comando Determinado</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade3"> Olhar Imponente</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade4"> Decisão Justa</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade5"> Coroa de Inspiração</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade6"> Grito de Guerra</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade7"> Força da União</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade8"> Lealdade Inquebrável</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade9"> Disciplina Rígida</label>
+                <label class="item-checkbox"><input type="checkbox" name="habilidade10"> Aura de Justiça</label>
             </div>
         </div>
 
@@ -244,7 +241,7 @@
             </svg>
         </span>
     </button>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
