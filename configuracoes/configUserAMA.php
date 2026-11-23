@@ -19,11 +19,7 @@ session_start();
 <body>
   <button id="voltar">
     <a href="../inicio/paginaInicial.php">
-      <img
-        class="logo"
-        src="../imagens/logo.jpeg"
-        alt="Brasão da Arcane Mirror Academy"
-        height="100px" />
+      <img class="logo" src="../imagens/logo.jpeg" alt="Brasão da Arcane Mirror Academy" height="100px" />
       <span class="ivoltar">&#8592;</span>
     </a>
   </button>
@@ -41,9 +37,29 @@ session_start();
     </div>
     <button>Modificar e-mail</button>
     <button>Modificar senha</button>
-    <div id="excluir"><button>Excluir conta</button></div>
+    <div id="excluir">
+      <form action="excluir.php"><button type="submit">Excluir conta</button></form>
+    </div>
   </div>
   </div>
-</body>
 
+  <?php if (!empty($_SESSION['contaExcluida'])): ?>
+    <script>
+      $(document).ready(function () {
+        Swal.fire({
+          title: 'Sucesso!',
+          text: '<?= $_SESSION['contaExcluida']; ?>',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location = 'index.php';
+          }
+        });
+      });
+    </script>
+    <?php unset($_SESSION['msg']); ?>
+  <?php endif; ?>
+
+</body>
 </html>
