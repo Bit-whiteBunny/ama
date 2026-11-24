@@ -2,10 +2,10 @@
     session_start();
     include('conecta.php');
 
-    $usuario = $_SESSION['usuario'];
+    $idUsuario = $_SESSION['id'];
 
     //sql para excluir registro no banco
-    $sql = "DELETE FROM jogador WHERE username='$usuario'";
+    $sql = "DELETE FROM jogador WHERE id='$idUsuario'";
 
     if (mysqli_query($conexao, $sql)) {
         session_unset();
