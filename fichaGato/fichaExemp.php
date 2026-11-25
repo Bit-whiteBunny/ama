@@ -8,9 +8,13 @@
     <link rel="stylesheet" href="aparenceFichaExemp.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <?
+    $_POST['casa'] = 'Gato';
+    ?>
 </head>
 
 <body>
+
     <button id="voltar">
         <a href="../fichas/fichas.php">
             <img class="logo" src="../imagens/logo.jpeg" alt="Brasão da Arcane Mirror Academy" height="100px">
@@ -138,11 +142,11 @@
 
             <!-- Coluna com checkboxes de status adicionais -->
             <div class="coluna-checkbox">
-                <label class="item-checkbox"><input type="checkbox" name="ilusoes_e_aparencias"> Ilusoes &
+                <label class="item-checkbox"><input type="checkbox" name="aula1"> Ilusoes &
                     Aparências</label>
-                <label class="item-checkbox"><input type="checkbox" name="insibilidade_parcial"> Insibilidade
+                <label class="item-checkbox"><input type="checkbox" name="aula2"> Insibilidade
                     Parcial</label>
-                <label class="item-checkbox"><input type="checkbox" name="linguagem_do_absurdo"> Linguagem do
+                <label class="item-checkbox"><input type="checkbox" name="aula3"> Linguagem do
                     Absurdo</label>
             </div>
         </div>
@@ -151,6 +155,10 @@
         <div class="campo-texto">
             <label for="equipamentos">Equipamentos e Itens Mágicos:</label>
             <textarea id="equipamentos" name="equipamentos" rows="2"></textarea>
+        </div>
+
+        <div class="campo-textodesas">
+            <input type="text" name="casa" value="Gato" readonly>
         </div>
 
         <!-- Campo de texto para descrever armas ou ferramentas mágicas -->

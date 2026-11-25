@@ -188,6 +188,10 @@ body {
     resize: vertical;
 }
 
+.campo-textodesas *{
+   display: none;
+}
+
 .campo-texto2 textarea {
     width: 85%;
     background: transparent;

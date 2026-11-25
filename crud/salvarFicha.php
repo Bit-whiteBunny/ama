@@ -1,8 +1,8 @@
 <?php
 session_start();
 include('conecta.php');
-var_dump($_POST);
-exit();
+/* var_dump($_POST);
+exit(); */
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $equipamentos = trim($_POST['equipamentos'] ?? '');
     $arma         = trim($_POST['arma'] ?? '');
+    $casa         = trim($_POST['casa']);
 
     $habilidades = [];
     for ($i = 1; $i <= 10; $i++) {
@@ -40,28 +41,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     //Verificar se o usuário já está cadastrado no banco de dados
+    $sqlVerifica = "SELECT id FROM casa WHERE nome = '$casa' LIMIT 1";
+    $verificacao = $conexao->prepare($sqlVerifica);
+    $verificacao->execute();
+    $id_casa = 0;
+    $verificacao->bind_result($id_casa);
+    $verificacao->fetch();
+    $verificacao->close();
+
+    $sqlPersonagem = "INSERT INTO personagem (nome, idade, serie, descricao, casa_id,attr_cafe, attr_imaginario, attr_caos, attr_amor) 
+                          VALUES ($nome, $idade, $serie, $descricao, $id_casa,$attr_cafe, $attr_imaginario, $attr_caos, $attr_amor)";
+
+    if (mysqli_query($conexao, $sqlPersonagem)) {
+        $_SESSION['msg'] = "Cadastro personagem enviado";
+        header("Location: cadastro.php");
+    } else {
+        $_SESSION['erro'] = "Ocorreu um erro: " . mysqli_error($conexao);
+        header("Location: cadastro.php");
+        exit();
+    }
+
     $sqlVerifica = "SELECT id FROM personagem WHERE nome = '$nome' LIMIT 1";
     $verificacao = $conexao->prepare($sqlVerifica);
     $verificacao->execute();
-    $verificacao->store_result();
+    $id_per = 0;
+    $verificacao->bind_result($id_per);
+    $verificacao->fetch();
+    $verificacao->close();
 
-    if ($verificacao->num_rows > 0) {
-        $_SESSION['usuarioExiste'] = "Esse usuário já existe.";
+    $sqlArma = "INSERT INTO arma (descricao, personagem_id) 
+                          VALUES ($arma, $id_per)";
+
+    if (mysqli_query($conexao, $sqlArma)) {
+        $_SESSION['msg'] = "Cadastro arma enviado";
+        header("Location: cadastro.php");
+    } else {
+        $_SESSION['erro'] = "Ocorreu um erro: " . mysqli_error($conexao);
         header("Location: cadastro.php");
         exit();
-    } else {
-        //sql para inserir no banco
-        $sqlPersonagem = "INSERT INTO personagem (nome, idade, serie, descricao, attr_cafe, attr_imaginario, attr_caos, attr_amor) 
-                          VALUES ($nome, $idade, $serie, $descricao, $attr_cafe, $attr_imaginario, $attr_caos, $attr_amor)";
-
-        if (mysqli_query($conexao, $sql)) {
-            $_SESSION['msg'] = "Cadastro enviado";
-            header("Location: cadastro.php");
-            exit();
-        } else {
-            $_SESSION['erro'] = "Ocorreu um erro: " . mysqli_error($conexao);
-            header("Location: cadastro.php");
-            exit();
-        }
     }
+
+    $sqlEquipamento = "INSERT INTO equipamento(descricao, personagem_id) 
+                          VALUES ($equipamentos, $id_per)";
+
+    if (mysqli_query($conexao, $sqlEquipamento)) {
+        $_SESSION['msg'] = "Cadastro equipamento enviado";
+        header("Location: cadastro.php");
+    } else {
+        $_SESSION['erro'] = "Ocorreu um erro: " . mysqli_error($conexao);
+        header("Location: cadastro.php");
+        exit();
+    }
+
+    
 }
