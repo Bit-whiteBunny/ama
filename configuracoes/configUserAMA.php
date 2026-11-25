@@ -1,30 +1,23 @@
-<?php
+<?php 
     session_start();
-    include '../conecta.php';
-
+    include '../crud/conectaBD.php';
+    
     $idUsuario = isset($_GET['idUsuario']) ? $_GET['idUsuario'] : null;
 
-    if (empty($idUsuario)) {
-        $_SESSION['erro'] = "ID do jogador não fornecido.";
-        header("Location: lista.php");
-        exit();
-    }
-
     //sql para buscar o jogador no banco
-    $sql = "SELECT * FROM aluno WHERE id = '$idUsuario'";
+    $sql = "SELECT * FROM jogador WHERE id = '$idUsuario'";
     $resultado = mysqli_query($conexao, $sql);
 
     if (mysqli_num_rows($resultado) == 0) {
         $_SESSION['erro'] = "Jogador não encontrado!";
-        header("Location: lista.php");
+        header("Location: configUserAMA.php");
+        exit();
     }
 
     while($tupla = mysqli_fetch_assoc($resultado)) {
-        $usuario = $tupla["username"] ?? '';
+        $username = $tupla["username"] ?? '';
         $email = $tupla["email"] ?? '';
-    }
-
-    mysqli_close($conexao);
+    } 
 ?>
 
 <!doctype html>
@@ -63,14 +56,14 @@
     <h1 style="font-size: 40px">Configurações</h1>
     <div class="informacoes">
       <div>Usuário:</div>
-      <div id="userAtual"><?//= $usuario; ?></div>
+      <div id="userAtual"><?//= $username ?></div>
     </div>
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalUsername">Modificar
       nome de usuário</button>
     <br />
     <div class="informacoes">
       <div>E-mail:</div>
-      <div id="userAtual"><?//= $email; ?></div>
+      <div id="userAtual"><?//= $email ?></div>
     </div>
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEmail">Modificar
       e-mail</button>
@@ -81,6 +74,20 @@
     </div>
   </div>
   </div>
+  
+  <?php
+    if (!empty($_SESSION['erro'])) {
+      echo '<script>alert("' . $_SESSION['erro'] . '")</script>';
+      unset($_SESSION['erro']);
+    }
+  ?>
+
+  <?php
+    if (!empty($_SESSION['erroBD'])) {
+      echo '<script>alert("' . $_SESSION['erro'] . '")</script>';
+      unset($_SESSION['erro']);
+    }
+  ?>
 
   <?php if (!empty($_SESSION['contaExcluida'])): ?>
     <script>
@@ -90,10 +97,6 @@
           text: '<?= $_SESSION['contaExcluida']; ?>',
           icon: 'success',
           confirmButtonText: 'Ok'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            window.location = 'configUserAMA.php';
-          }
         });
       });
     </script>
@@ -108,10 +111,6 @@
           text: '<?= $_SESSION['userAtualizado']; ?>',
           icon: 'success',
           confirmButtonText: 'Ok'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            window.location = 'configUserAMA.php';
-          }
         });
       });
     </script>
@@ -126,10 +125,6 @@
           text: '<?= $_SESSION['emailAtualizado']; ?>',
           icon: 'success',
           confirmButtonText: 'Ok'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            window.location = 'configUserAMA.php';
-          }
         });
       });
     </script>
@@ -144,10 +139,6 @@
           text: '<?= $_SESSION['senhaAtualizada']; ?>',
           icon: 'success',
           confirmButtonText: 'Ok'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            window.location = 'configUserAMA.php';
-          }
         });
       });
     </script>

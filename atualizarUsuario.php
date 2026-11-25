@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include 'crud/conecta.php';
+    include '../crud/conectaBD.php';
 
     $idUsuario = $_SESSION['idUsuario'];
     $userNovo = $_POST['username'];
@@ -11,11 +11,11 @@
 
     if (mysqli_query($conexao, $sql)) {
         $_SESSION['userAtualizado'] = "Nome de usuário atualizado.";
-        header("Location: lista.php");
+        header("Location: configUserAMA.php");
         exit();
     } else {
-        $_SESSION['erro'] = "Ocorreu um erro: " . mysqli_error($conexao);
-        header("Location: criar.php");
+        $_SESSION['erroBD'] = "Ocorreu um erro: " . mysqli_error($conexao);
+        header("Location: configUserAMA.php");
         exit();
     }
 ?>
