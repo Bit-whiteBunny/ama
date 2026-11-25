@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('crud/conecta.php');
+include('crud/conectaBD.php');
 
 $username = $_POST['username'];
 $email = $_POST['email'];

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('crud/conecta.php');
+include('crud/conectaBD.php');
 
 $usuarioInserido = $_POST['username'];
 $senhaInserida = $_POST['senha'];
