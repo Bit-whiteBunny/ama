@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $aulas = [];
-    for ($i = 1; $i <= 10; $i++) {
+    for ($i = 1; $i <= 3; $i++) {
         $aulas["aulas$i"] = $_POST["aulas$i"];
     }
 
@@ -54,11 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (mysqli_query($conexao, $sqlPersonagem)) {
         $_SESSION['msg'] = "Cadastro personagem enviado";
-        header("Location: cadastro.php");
     } else {
         $_SESSION['erro'] = "Ocorreu um erro: " . mysqli_error($conexao);
-        header("Location: cadastro.php");
-        exit();
     }
 
     $sqlVerifica = "SELECT id FROM personagem WHERE nome = '$nome' LIMIT 1";
@@ -74,11 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (mysqli_query($conexao, $sqlArma)) {
         $_SESSION['msg'] = "Cadastro arma enviado";
-        header("Location: cadastro.php");
+
     } else {
         $_SESSION['erro'] = "Ocorreu um erro: " . mysqli_error($conexao);
-        header("Location: cadastro.php");
-        exit();
     }
 
     $sqlEquipamento = "INSERT INTO equipamento(descricao, personagem_id) 
@@ -86,12 +81,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (mysqli_query($conexao, $sqlEquipamento)) {
         $_SESSION['msg'] = "Cadastro equipamento enviado";
-        header("Location: cadastro.php");
+       
     } else {
         $_SESSION['erro'] = "Ocorreu um erro: " . mysqli_error($conexao);
-        header("Location: cadastro.php");
-        exit();
     }
 
-    
+    $sql = "INSERT INTO habilidade (nome, ativa, personagem_id) VALUES (?, ?, ?)";
+    $stmt = $conexao->prepare($sql);
+
+    if ($stmt) {
+        $sucesso = true;
+
+        for ($i = 1; $i <= 10; $i++) {
+            $index = 'habilidade' . $i;
+
+            $ativa_val = isset($habilidades[$index]) ? $habilidades[$index] : 0;
+
+            $stmt->bind_param("ssi", $index, $ativa_val, $id_per);
+
+            if (!$stmt->execute()) {
+                $sucesso = false;
+                $_SESSION['erro'] = "Ocorreu um erro no item $i: " . $stmt->error;
+                break; 
+            }
+        }
+
+        $stmt->close();
+    }
 }

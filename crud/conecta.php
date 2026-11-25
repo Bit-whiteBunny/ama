@@ -2,7 +2,6 @@
 $servidor   = "localhost:3307";
 $usuario    = "root";
 $senha      = "root";
-
 //cria a conexão
 $conexao = mysqli_connect($servidor, $usuario, $senha);
 
