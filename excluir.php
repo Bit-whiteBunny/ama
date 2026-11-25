@@ -1,8 +1,8 @@
 <?php
     session_start();
-    include('conecta.php');
+    include('crud/conecta.php');
 
-    $idUsuario = $_SESSION['id'];
+    $idUsuario = $_SESSION['idUsuario'];
 
     //sql para excluir registro no banco
     $sql = "DELETE FROM jogador WHERE id='$idUsuario'";

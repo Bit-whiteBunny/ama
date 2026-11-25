@@ -1,5 +1,30 @@
 <?php
-session_start();
+    session_start();
+    include '../conecta.php';
+
+    $idUsuario = isset($_GET['idUsuario']) ? $_GET['idUsuario'] : null;
+
+    if (empty($idUsuario)) {
+        $_SESSION['erro'] = "ID do jogador não fornecido.";
+        header("Location: lista.php");
+        exit();
+    }
+
+    //sql para buscar o jogador no banco
+    $sql = "SELECT * FROM aluno WHERE id = '$idUsuario'";
+    $resultado = mysqli_query($conexao, $sql);
+
+    if (mysqli_num_rows($resultado) == 0) {
+        $_SESSION['erro'] = "Jogador não encontrado!";
+        header("Location: lista.php");
+    }
+
+    while($tupla = mysqli_fetch_assoc($resultado)) {
+        $usuario = $tupla["username"] ?? '';
+        $email = $tupla["email"] ?? '';
+    }
+
+    mysqli_close($conexao);
 ?>
 
 <!doctype html>
@@ -38,14 +63,14 @@ session_start();
     <h1 style="font-size: 40px">Configurações</h1>
     <div class="informacoes">
       <div>Usuário:</div>
-      <div id="userAtual"><?//= $_SESSION['usuario']; ?></div>
+      <div id="userAtual"><?//= $usuario; ?></div>
     </div>
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalUsername">Modificar
       nome de usuário</button>
     <br />
     <div class="informacoes">
       <div>E-mail:</div>
-      <div id="userAtual"><?//= $_SESSION['email']; ?></div>
+      <div id="userAtual"><?//= $email; ?></div>
     </div>
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEmail">Modificar
       e-mail</button>
@@ -67,12 +92,66 @@ session_start();
           confirmButtonText: 'Ok'
         }).then((result) => {
           if (result.isConfirmed) {
-            window.location = 'index.php';
+            window.location = 'configUserAMA.php';
           }
         });
       });
     </script>
-    <?php unset($_SESSION['msg']); ?>
+    <?php unset($_SESSION['contaExcluida']); ?>
+  <?php endif; ?>
+
+  <?php if (!empty($_SESSION['userAtualizado'])): ?>
+    <script>
+      $(document).ready(function () {
+        Swal.fire({
+          title: 'Sucesso!',
+          text: '<?= $_SESSION['userAtualizado']; ?>',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location = 'configUserAMA.php';
+          }
+        });
+      });
+    </script>
+    <?php unset($_SESSION['userAtualizado']); ?>
+  <?php endif; ?>
+
+  <?php if (!empty($_SESSION['emailAtualizado'])): ?>
+    <script>
+      $(document).ready(function () {
+        Swal.fire({
+          title: 'Sucesso!',
+          text: '<?= $_SESSION['emailAtualizado']; ?>',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location = 'configUserAMA.php';
+          }
+        });
+      });
+    </script>
+    <?php unset($_SESSION['emailAtualizado']); ?>
+  <?php endif; ?>
+
+  <?php if (!empty($_SESSION['senhaAtualizada'])): ?>
+    <script>
+      $(document).ready(function () {
+        Swal.fire({
+          title: 'Sucesso!',
+          text: '<?= $_SESSION['senhaAtualizada']; ?>',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location = 'configUserAMA.php';
+          }
+        });
+      });
+    </script>
+    <?php unset($_SESSION['senhaAtualizada']); ?>
   <?php endif; ?>
 
   <div class="modal" id="modalUsername" tabindex="-1">
@@ -86,7 +165,7 @@ session_start();
           <div id="perg">
             <form action="atualizarUsuario.php" method="POST">
               <label for="username">Insira seu novo nome: </label>
-              <input type="text" name="usuario" id="usuario" required>
+              <input type="text" name="username" id="username" required>
               <button type="submit" class="atualizar">Atualizar</button>
             </form>
           </div>

@@ -25,10 +25,10 @@ session_start();
             unset($_SESSION['erro']);
         }
         ?>
-        <form id="loginForm" action="login.php">
+        <form id="loginForm" method="POST" action="login.php">
             <div id="dados">
-                <input type="text" class="textBox" placeholder="Usuário" required>
-                <input type="password" class="textBox" placeholder="Senha" required>
+                <input type="text" class="textBox" name="username" id="username" placeholder="Usuário" required>
+                <input type="password" class="textBox" name="senha" id="senha" placeholder="Senha" required>
                 <button type="submit" class="submitButton">Entrar</button>
             </div>
         </form>

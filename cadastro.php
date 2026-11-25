@@ -22,7 +22,7 @@ session_start();
         <form id="loginForm" action="salvar.php" method="POST">
             <div id="dados">
                 <input type="email" name="email" id="email" class="textBox" placeholder="E-mail" required>
-                <input type="text" name="usuario" id="usuario" class="textBox" placeholder="Usuário" required>
+                <input type="text" name="username" id="username" class="textBox" placeholder="Usuário" required>
                 <input type="password" name="senha" id="senha" class="textBox" placeholder="Senha" required>
                 <button type="submit" class="submitButton">Cadastrar</button>
             </div>

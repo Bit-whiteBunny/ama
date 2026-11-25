@@ -1,8 +1,8 @@
 <?php
 session_start();
-include('/crud/conecta.php');
+include('crud/conecta.php');
 
-$usuario = $_POST['usuario'];
+$username = $_POST['username'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 

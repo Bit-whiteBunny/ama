@@ -1,8 +1,8 @@
 <?php
 session_start();
-include('conecta.php');
+include('crud/conecta.php');
 
-$usuarioInserido = $_POST['usuario'];
+$usuarioInserido = $_POST['username'];
 $senhaInserida = $_POST['senha'];
 
 //Verificar se o usuário já está cadastrado no banco de dados
@@ -12,12 +12,11 @@ $verificacao->execute();
 $verificacao->store_result();
 
 if ($verificacao->num_rows > 0) {
-    $verificacao->bind_result($id, $email, $usuario);
-    $verificacao->fetch();
+    $verificacao->fetch_assoc();
 
-    $_SESSION['usuario'] = $usuario;
-    $_SESSION['email'] = $email;
-    $_SESSION['usuario'] = $usuario;
+    $_SESSION['idUsuario'] = $verificacao['id'];
+    $_SESSION['email'] = $verificacao['email'];
+    $_SESSION['username'] = $verificacao['usuario'];
 
     $_SESSION['msg'] = "Login enviado";
     header("Location: index.php");
