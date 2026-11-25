@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `AMA`.`jogador` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(150) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
-  `userneme` VARCHAR(100) NOT NULL,
+  `username` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -163,12 +163,12 @@ CREATE TABLE IF NOT EXISTS `AMA`.`registro` (
   CONSTRAINT `fk_jogador_has_ficha_jogador1`
     FOREIGN KEY (`jogador_id`)
     REFERENCES `AMA`.`jogador` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_jogador_has_ficha_ficha1`
     FOREIGN KEY (`ficha_id`)
     REFERENCES `AMA`.`ficha` (`id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -179,15 +179,14 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 ";
 
 if (mysqli_multi_query($conexao, $sql)) {
-    do {
-        if ($result = mysqli_store_result($conexao)) {
-            mysqli_free_result($result);
-        }
-    } while (mysqli_more_results($conexao) && mysqli_next_result($conexao));
+  do {
+    if ($result = mysqli_store_result($conexao)) {
+      mysqli_free_result($result);
+    }
+  } while (mysqli_more_results($conexao) && mysqli_next_result($conexao));
 
-    echo "Banco criado com sucesso!";
+  echo "Banco criado com sucesso!";
 } else {
-    echo "Erro ao criar BD: " . mysqli_error($conexao);
+  echo "Erro ao criar BD: " . mysqli_error($conexao);
 }
 mysqli_close($conexao);
-?>
