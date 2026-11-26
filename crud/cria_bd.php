@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `AMA`.`registro` (
   CONSTRAINT `fk_jogador_has_ficha_ficha1`
     FOREIGN KEY (`ficha_id`)
     REFERENCES `AMA`.`ficha` (`id`)
-    ON DELETE CASCADE
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
