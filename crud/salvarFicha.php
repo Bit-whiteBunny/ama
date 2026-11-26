@@ -1,9 +1,10 @@
 <?php
 session_start();
-include('conecta.php');
-/* var_dump($_POST);
-exit(); */
+include('conectaBD.php');
 
+/*var_dump($_POST);
+exit(); 
+*/
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nome        = trim($_POST['nome'] ?? '');
@@ -25,12 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $habilidades = [];
     for ($i = 1; $i <= 10; $i++) {
-        $habilidades["habilidade$i"] = $_POST["habilidade$i"];
+        if (!empty($_POST["habilidade$i"]))
+            $habilidades["habilidade$i"] = $_POST["habilidade$i"];
     }
 
     $aulas = [];
     for ($i = 1; $i <= 3; $i++) {
-        $aulas["aulas$i"] = $_POST["aulas$i"];
+        if (!empty($_POST["aulas$i"]))
+            $aulas["aulas$i"] = $_POST["aulas$i"];
     }
 
     // Exemplo de Validação simples (Nome é obrigatório)
@@ -39,73 +42,98 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-
-    //Verificar se o usuário já está cadastrado no banco de dados
-    $sqlVerifica = "SELECT id FROM casa WHERE nome = '$casa' LIMIT 1";
-    $verificacao = $conexao->prepare($sqlVerifica);
-    $verificacao->execute();
+    // 1. Buscar o ID da Casa de forma segura
+    $stmtCasa = $conexao->prepare("SELECT id FROM casa WHERE nome = ? LIMIT 1");
+    $stmtCasa->bind_param("s", $casa);
+    $stmtCasa->execute();
     $id_casa = 0;
-    $verificacao->bind_result($id_casa);
-    $verificacao->fetch();
-    $verificacao->close();
+    $stmtCasa->bind_result($id_casa);
+    $stmtCasa->fetch();
+    $stmtCasa->close();
 
-    $sqlPersonagem = "INSERT INTO personagem (nome, idade, serie, descricao, casa_id,attr_cafe, attr_imaginario, attr_caos, attr_amor) 
-                          VALUES ($nome, $idade, $serie, $descricao, $id_casa,$attr_cafe, $attr_imaginario, $attr_caos, $attr_amor)";
+    // 2. Inserir o Personagem usando Prepared Statement
+    $sqlPersonagem = $conexao->prepare("INSERT INTO personagem (nome, idade, serie, descricao, casa_id, attr_cafe, attr_imaginario, attr_caos, attr_amor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    if (mysqli_query($conexao, $sqlPersonagem)) {
-        $_SESSION['msg'] = "Cadastro personagem enviado";
+    // Tipos: s = string, i = inteiro
+    $sqlPersonagem->bind_param("ssssissss", $nome, $idade, $serie, $descricao, $id_casa, $attr_cafe, $attr_imaginario, $attr_caos, $attr_amor);
+
+    if ($sqlPersonagem->execute()) {
+        $_SESSION['msg'] = "Cadastro do personagem enviado com sucesso!";
+        // Pega o ID gerado para este personagem recém inserido
+        $id_per = $conexao->insert_id;
     } else {
-        $_SESSION['erro'] = "Ocorreu um erro: " . mysqli_error($conexao);
+        $_SESSION['erro'] = "Ocorreu um erro ao cadastrar o personagem: " . $sqlPersonagem->error;
+        $sqlPersonagem->close();
+        exit;
     }
+    $sqlPersonagem->close();
 
-    $sqlVerifica = "SELECT id FROM personagem WHERE nome = '$nome' LIMIT 1";
-    $verificacao = $conexao->prepare($sqlVerifica);
-    $verificacao->execute();
-    $id_per = 0;
-    $verificacao->bind_result($id_per);
-    $verificacao->fetch();
-    $verificacao->close();
+    $sqlArma = $conexao->prepare("INSERT INTO arma (descricao, personagem_id) VALUES(? , ?)");
 
-    $sqlArma = "INSERT INTO arma (descricao, personagem_id) 
-                          VALUES ($arma, $id_per)";
+    $sqlArma->bind_param("si", $arma, $id_per);
 
-    if (mysqli_query($conexao, $sqlArma)) {
-        $_SESSION['msg'] = "Cadastro arma enviado";
-
+    if ($sqlArma->execute()) {
+        $_SESSION['msg'] = "Cadastro da arma enviado com sucesso!";
     } else {
-        $_SESSION['erro'] = "Ocorreu um erro: " . mysqli_error($conexao);
+        $_SESSION['erro'] = "Ocorreu um erro ao cadastrar a arma: " . $sqlArma->error;
+        $sqlArma->close();
+        exit;
     }
+    $sqlArma->close();
 
-    $sqlEquipamento = "INSERT INTO equipamento(descricao, personagem_id) 
-                          VALUES ($equipamentos, $id_per)";
+    $sqlEquipamento = $conexao->prepare("INSERT INTO equipamento (descricao, personagem_id) VALUES(? , ?)");
 
-    if (mysqli_query($conexao, $sqlEquipamento)) {
-        $_SESSION['msg'] = "Cadastro equipamento enviado";
-       
+    $sqlEquipamento->bind_param("si", $equipamentos, $id_per);
+
+    if ($sqlEquipamento->execute()) {
+        $_SESSION['msg'] = "Cadastro da arma enviado com sucesso!";
     } else {
-        $_SESSION['erro'] = "Ocorreu um erro: " . mysqli_error($conexao);
+        $_SESSION['erro'] = "Ocorreu um erro ao cadastrar a arma: " . $sqlEquipamento->error;
+        $sqlEquipamento->close();
+        exit;
     }
+    $sqlEquipamento->close();
 
-    $sql = "INSERT INTO habilidade (nome, ativa, personagem_id) VALUES (?, ?, ?)";
-    $stmt = $conexao->prepare($sql);
+    for ($i = 1; $i <= 10; $i++) {
+        $nomeHabi = " ";
+        if (!empty($habilidades["habilidade$i"])) {
+            $nomeHabi = 'habilidade' . $i;
+            $ativaHabi = $habilidades["habilidade$i"];
+        }
+        $sqlHabilidade = $conexao->prepare("INSERT INTO habilidade(nome, ativa, personagem_id) VALUES(?, ?, ?)");
+        $sqlHabilidade->bind_param("ssi", $nomeHabi, $ativaHabi, $id_per);
 
-    if ($stmt) {
-        $sucesso = true;
-
-        for ($i = 1; $i <= 10; $i++) {
-            $index = 'habilidade' . $i;
-
-            $ativa_val = isset($habilidades[$index]) ? $habilidades[$index] : 0;
-
-            $stmt->bind_param("ssi", $index, $ativa_val, $id_per);
-
-            if (!$stmt->execute()) {
-                $sucesso = false;
-                $_SESSION['erro'] = "Ocorreu um erro no item $i: " . $stmt->error;
-                break; 
-            }
+        if ($sqlHabilidade->execute()) {
+            $_SESSION['msg'] = "Cadastro da arma enviado com sucesso!";
+        } else {
+            $_SESSION['erro'] = "Ocorreu um erro ao cadastrar a arma: " . $sqlHabilidade->error;
+            $sqlHabilidade->close();
+            exit;
         }
 
-        $stmt->close();
+        $sqlHabilidade->close();
     }
+
+    for ($i = 1; $i <= 3; $i++) {
+        $nomeAula = " ";
+        $ativaAula = " ";
+        if (!empty($aulas["aula$i"])) {
+            $nomeAula = 'aula' . $i;
+            $ativaAula = $aulas["aula$i"];
+        }
+            $sqlAula = $conexao->prepare("INSERT INTO aula(nome, ativa, personagem_id) VALUES(?, ?, ?)");
+            $sqlAula->bind_param("ssi", $nomeAula, $ativaAula, $id_per);
+
+            if ($sqlAula->execute()) {
+                $_SESSION['msg'] = "Cadastro da arma enviado com sucesso!";
+            } else {
+                $_SESSION['erro'] = "Ocorreu um erro ao cadastrar a arma: " . $sqlAula->error;
+                $sqlAula->close();
+                exit;
+            }
+        
+        $sqlAula->close();
+    }
+    header("Location: ../fichas/fichas.php");
+    exit();
 }
