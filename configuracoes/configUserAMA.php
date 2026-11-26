@@ -1,23 +1,41 @@
-<?php 
-    session_start();
-    include '../crud/conectaBD.php';
-    
-    $idUsuario = isset($_GET['idUsuario']) ? $_GET['idUsuario'] : null;
+<?php
+session_start();
+include '../crud/conectaBD.php';
 
-    //sql para buscar o jogador no banco
-    $sql = "SELECT * FROM jogador WHERE id = '$idUsuario'";
-    $resultado = mysqli_query($conexao, $sql);
+if (!empty($_SESSION['contaExcluida'])) {
+  echo "<script>
+    $(document).ready(function () {
+      Swal.fire({
+        title: 'Sucesso!',
+        text: '{$_SESSION['contaExcluida']}',
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location = '../index.php';
+        }
+      });
+    });
+  </script>";
+  unset($_SESSION['contaExcluida']);
+}
 
-    if (mysqli_num_rows($resultado) == 0) {
-        $_SESSION['erro'] = "Jogador não encontrado!";
-        header("Location: configUserAMA.php");
-        exit();
-    }
+$idUsuario = (int) $_SESSION['idUsuario'];
 
-    while($tupla = mysqli_fetch_assoc($resultado)) {
-        $username = $tupla["username"] ?? '';
-        $email = $tupla["email"] ?? '';
-    } 
+//sql para buscar o jogador no banco
+$sql = "SELECT id, email, username FROM jogador WHERE id = '$idUsuario'";
+$resultado = mysqli_query($conexao, $sql);
+
+if (mysqli_num_rows($resultado) === 0) {
+  $_SESSION['erro'] = "Jogador não encontrado!";
+  header("Location: ../index.php");
+  exit();
+}
+
+while ($tupla = mysqli_fetch_assoc($resultado)) {
+  $username = $tupla["username"] ?? '';
+  $email = $tupla["email"] ?? '';
+}
 ?>
 
 <!doctype html>
@@ -56,14 +74,14 @@
     <h1 style="font-size: 40px">Configurações</h1>
     <div class="informacoes">
       <div>Usuário:</div>
-      <div id="userAtual"><?//= $username ?></div>
+      <div id="userAtual"><?= $username ?></div>
     </div>
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalUsername">Modificar
       nome de usuário</button>
     <br />
     <div class="informacoes">
       <div>E-mail:</div>
-      <div id="userAtual"><?//= $email ?></div>
+      <div id="userAtual"><?= $email ?></div>
     </div>
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEmail">Modificar
       e-mail</button>
@@ -74,75 +92,26 @@
     </div>
   </div>
   </div>
-  
-  <?php
-    if (!empty($_SESSION['erro'])) {
-      echo '<script>alert("' . $_SESSION['erro'] . '")</script>';
-      unset($_SESSION['erro']);
-    }
-  ?>
 
   <?php
-    if (!empty($_SESSION['erroBD'])) {
-      echo '<script>alert("' . $_SESSION['erro'] . '")</script>';
-      unset($_SESSION['erro']);
-    }
+  if (!empty($_SESSION['erro'])) {
+    echo '<script>alert("' . $_SESSION['erro'] . '")</script>';
+    unset($_SESSION['erro']);
+  }
   ?>
 
-  <?php if (!empty($_SESSION['contaExcluida'])): ?>
+  <?php if (!empty($_SESSION['msg'])): ?>
     <script>
       $(document).ready(function () {
         Swal.fire({
           title: 'Sucesso!',
-          text: '<?= $_SESSION['contaExcluida']; ?>',
+          text: '<?= $_SESSION['msg']; ?>',
           icon: 'success',
           confirmButtonText: 'Ok'
-        });
+        })
       });
     </script>
-    <?php unset($_SESSION['contaExcluida']); ?>
-  <?php endif; ?>
-
-  <?php if (!empty($_SESSION['userAtualizado'])): ?>
-    <script>
-      $(document).ready(function () {
-        Swal.fire({
-          title: 'Sucesso!',
-          text: '<?= $_SESSION['userAtualizado']; ?>',
-          icon: 'success',
-          confirmButtonText: 'Ok'
-        });
-      });
-    </script>
-    <?php unset($_SESSION['userAtualizado']); ?>
-  <?php endif; ?>
-
-  <?php if (!empty($_SESSION['emailAtualizado'])): ?>
-    <script>
-      $(document).ready(function () {
-        Swal.fire({
-          title: 'Sucesso!',
-          text: '<?= $_SESSION['emailAtualizado']; ?>',
-          icon: 'success',
-          confirmButtonText: 'Ok'
-        });
-      });
-    </script>
-    <?php unset($_SESSION['emailAtualizado']); ?>
-  <?php endif; ?>
-
-  <?php if (!empty($_SESSION['senhaAtualizada'])): ?>
-    <script>
-      $(document).ready(function () {
-        Swal.fire({
-          title: 'Sucesso!',
-          text: '<?= $_SESSION['senhaAtualizada']; ?>',
-          icon: 'success',
-          confirmButtonText: 'Ok'
-        });
-      });
-    </script>
-    <?php unset($_SESSION['senhaAtualizada']); ?>
+    <?php unset($_SESSION['msg']); ?>
   <?php endif; ?>
 
   <div class="modal" id="modalUsername" tabindex="-1">

@@ -9,7 +9,6 @@ $senhaInserida = $_POST['senha'];
 $sqlVerifica = "SELECT id, email, username FROM jogador WHERE username = '$usuarioInserido' AND senha = '$senhaInserida' LIMIT 1";
 $verificacao = $conexao->prepare($sqlVerifica);
 $verificacao->execute();
-
 $resultado = $verificacao->get_result();
 
 if ($resultado->num_rows > 0) {
@@ -23,7 +22,7 @@ if ($resultado->num_rows > 0) {
     header("Location: index.php");
     exit();
 } else {
-    $_SESSION['usuarioInvalido'] = "Usuário ou senha incorretos.";
+    $_SESSION['erro'] = "Usuário ou senha incorretos.";
     header("Location: index.php");
     exit();
 }

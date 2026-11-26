@@ -13,7 +13,7 @@ $verificacao->execute();
 $verificacao->store_result();
 
 if ($verificacao->num_rows > 0) {
-    $_SESSION['usuarioExiste'] = "Esse usuário já existe.";
+    $_SESSION['erro'] = "Esse usuário já existe.";
     header("Location: cadastro.php");
     exit();
 } else {
@@ -22,6 +22,11 @@ if ($verificacao->num_rows > 0) {
             VALUES ('$email', '$senha', '$username')";
 
     if (mysqli_query($conexao, $sql)) {
+        $sql = "SELECT id FROM jogador WHERE username = '$username'";
+        $resultado = mysqli_query($conexao, $sql);
+        $tupla = mysqli_fetch_assoc($resultado);
+        $_SESSION['idUsuario'] = $tupla['id'];
+
         $_SESSION['msg'] = "Cadastro enviado";
         header("Location: cadastro.php");
         exit();

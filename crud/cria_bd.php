@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'conecta.php';
 
 //cria BD
@@ -185,8 +186,9 @@ if (mysqli_multi_query($conexao, $sql)) {
     }
   } while (mysqli_more_results($conexao) && mysqli_next_result($conexao));
 
-  echo "Banco criado com sucesso!";
+  $_SESSION['criacaoBD'] = "Banco criado com sucesso!";
 } else {
-  echo "Erro ao criar BD: " . mysqli_error($conexao);
+  $_SESSION['erro'] = "Erro ao criar BD: " . mysqli_error($conexao);
 }
-mysqli_close($conexao);
+header("Location: ../index.php");
+exit();

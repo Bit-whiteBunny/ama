@@ -10,12 +10,12 @@
             WHERE id = $idUsuario";
 
     if (mysqli_query($conexao, $sql)) {
-        $_SESSION['emailAtualizado'] = "Email atualizado.";
-        header("Location: configUserAMA.php");
+        $_SESSION['msg'] = "Email atualizado.";
+        header("Location: configuracoes/configUserAMA.php");
         exit();
     } else {
-        $_SESSION['erroBD'] = "Ocorreu um erro: " . mysqli_error($conexao);
-        header("Location: configUserAMA.php");
+        $_SESSION['erro'] = "Ocorreu um erro: " . mysqli_error($conexao);
+        header("Location: configuracoes/configUserAMA.php");
         exit();
     }
 ?>

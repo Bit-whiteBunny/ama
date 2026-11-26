@@ -33,9 +33,9 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <?php
-    if (!empty($_SESSION['usuarioExiste'])) {
-        echo '<script>alert("' . $_SESSION['usuarioExiste'] . '")</script>';
-        unset($_SESSION['usuarioExiste']);
+    if (!empty($_SESSION['erro'])) {
+        echo '<script>alert("' . $_SESSION['erro'] . '")</script>';
+        unset($_SESSION['erro']);
     }
     ?>
 

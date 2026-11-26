@@ -34,6 +34,10 @@ session_start();
         </form>
     </div>
     <p><a href="cadastro.php">Criar conta</a></p>
+
+    <form action="crud/cria_bd.php" method="POST">
+        <button id="criaBD">Criar BD</button>
+    </form>
 </body>
 
 </html>
@@ -41,16 +45,9 @@ session_start();
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <?php
-if (!empty($_SESSION['usuarioInvalido'])) {
-    echo '<script>alert("' . $_SESSION['usuarioInvalido'] . '")</script>';
-    unset($_SESSION['usuarioInvalido']);
-}
-?>
-
-<?php
-if (!empty($_SESSION['semCadastro'])) {
-    echo '<script>alert("' . $_SESSION['semCadastro'] . '")</script>';
-    unset($_SESSION['semCadastro']);
+if (!empty($_SESSION['criacaoBD'])) {
+    echo '<script>alert("' . $_SESSION['criacaoBD'] . '")</script>';
+    unset($_SESSION['criacaoBD']);
 }
 ?>
 
