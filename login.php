@@ -9,14 +9,15 @@ $senhaInserida = $_POST['senha'];
 $sqlVerifica = "SELECT id, email, username FROM jogador WHERE username = '$usuarioInserido' AND senha = '$senhaInserida' LIMIT 1";
 $verificacao = $conexao->prepare($sqlVerifica);
 $verificacao->execute();
-$verificacao->store_result();
 
-if ($verificacao->num_rows > 0) {
-    $verificacao->fetch_assoc();
+$resultado = $verificacao->get_result();
 
-    $_SESSION['idUsuario'] = $verificacao['id'];
-    $_SESSION['email'] = $verificacao['email'];
-    $_SESSION['username'] = $verificacao['usuario'];
+if ($resultado->num_rows > 0) {
+    $dadosUsuario = $resultado->fetch_assoc();
+
+    $_SESSION['idUsuario'] = $dadosUsuario['id'];
+    $_SESSION['email'] = $dadosUsuario['email'];
+    $_SESSION['username'] = $dadosUsuario['username'];
 
     $_SESSION['msg'] = "Login enviado";
     header("Location: index.php");
