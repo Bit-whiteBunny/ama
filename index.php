@@ -13,7 +13,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="aparenceLogin.css">
+    <link rel="stylesheet" href="crudJogador/aparenceLogin.css">
 </head>
 
 <body>
@@ -25,7 +25,7 @@ session_start();
             unset($_SESSION['erro']);
         }
         ?>
-        <form id="loginForm" method="POST" action="login.php">
+        <form id="loginForm" method="POST" action="crudJogador/login.php">
             <div id="dados">
                 <input type="text" class="textBox" name="username" id="username" placeholder="Usuário" required>
                 <input type="password" class="textBox" name="senha" id="senha" placeholder="Senha" required>
@@ -33,7 +33,7 @@ session_start();
             </div>
         </form>
     </div>
-    <p><a href="cadastro.php">Criar conta</a></p>
+    <p><a href="crudJogador/cadastro.php">Criar conta</a></p>
 
     <form action="crud/cria_bd.php" method="POST">
         <button id="criaBD">Criar BD</button>

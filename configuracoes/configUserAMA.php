@@ -2,24 +2,6 @@
 session_start();
 include '../crud/conectaBD.php';
 
-if (!empty($_SESSION['contaExcluida'])) {
-  echo "<script>
-    $(document).ready(function () {
-      Swal.fire({
-        title: 'Sucesso!',
-        text: '{$_SESSION['contaExcluida']}',
-        icon: 'success',
-        confirmButtonText: 'Ok'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location = '../index.php';
-        }
-      });
-    });
-  </script>";
-  unset($_SESSION['contaExcluida']);
-}
-
 $idUsuario = (int) $_SESSION['idUsuario'];
 
 //sql para buscar o jogador no banco
@@ -88,10 +70,76 @@ while ($tupla = mysqli_fetch_assoc($resultado)) {
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSenha">Modificar
       senha</button>
     <div id="excluir">
-      <form action="../excluir.php"><button type="submit">Excluir conta</button></form>
+      <form action="../crudJogador/excluir.php"><button type="submit">Excluir conta</button></form>
     </div>
   </div>
   </div>
+
+  <div class="modal" id="modalUsername" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modificar nome de usuário</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="perg">
+            <form action="../crudJogador/atualizarUsuario.php" method="POST">
+              <label for="username">Insira seu novo nome: </label>
+              <input type="text" name="username" id="username" required>
+              <button type="submit" class="atualizar">Atualizar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modalEmail" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modificar email</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="perg">
+            <form action="../crudJogador/atualizarEmail.php" method="POST">
+              <label for="email">Insira seu novo email: </label>
+              <input type="email" name="email" id="email" required>
+              <button type="submit" class="atualizar">Atualizar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modalSenha" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modificar senha</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="perg">
+            <form action="../crudJogador/atualizarSenha.php" method="POST">
+              <label for="password">Insira sua nova senha: </label>
+              <input type="password" name="senha" id="senha" required>
+              <button type="submit" class="atualizar">Atualizar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+  <script src="../jquery-4.0.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <?php
   if (!empty($_SESSION['erro'])) {
@@ -113,69 +161,6 @@ while ($tupla = mysqli_fetch_assoc($resultado)) {
     </script>
     <?php unset($_SESSION['msg']); ?>
   <?php endif; ?>
-
-  <div class="modal" id="modalUsername" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Modificar nome de usuário</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div id="perg">
-            <form action="atualizarUsuario.php" method="POST">
-              <label for="username">Insira seu novo nome: </label>
-              <input type="text" name="username" id="username" required>
-              <button type="submit" class="atualizar">Atualizar</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="modalEmail" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Modificar email</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div id="perg">
-            <form action="atualizarEmail.php" method="POST">
-              <label for="email">Insira seu novo email: </label>
-              <input type="email" name="email" id="email" required>
-              <button type="submit" class="atualizar">Atualizar</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="modalSenha" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Modificar senha</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div id="perg">
-            <form action="atualizarSenha.php" method="POST">
-              <label for="password">Insira sua nova senha: </label>
-              <input type="password" name="senha" id="senha" required>
-              <button type="submit" class="atualizar">Atualizar</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
 </body>
 
 </html>

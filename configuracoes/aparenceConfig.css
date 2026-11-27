@@ -19,7 +19,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 400px;
-    height: 500px;
+    height: 400px;
     padding: 30px;
     background: #9ab1dd;
     border: none;
@@ -93,7 +93,15 @@ body {
 }
 
 #excluir {
-    height: 30%;
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#excluir form {
+    width: 100%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -103,6 +111,6 @@ body {
 #excluir button {
     background-color: #f899b0;
     box-shadow: 0 0 10px #6f2f3f;
-    color: #6f2f3f
+    color: #6f2f3f;
 }
 
